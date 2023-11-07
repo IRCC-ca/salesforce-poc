@@ -3,7 +3,7 @@ import { IButtonConfig } from 'ircc-ds-angular-component-library';
 import { Router } from '@angular/router';
 import { LanguageSwitchService } from '@app/@shared/language-switch/language-switch.service';
 import { TranslateService } from '@ngx-translate/core';
-import { AccessbilityDemoFormStateService } from '../accessbility-demo-form-state.service';
+import { AccessbilityDemoFormStateService } from '../salesforce-demo-form-state.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

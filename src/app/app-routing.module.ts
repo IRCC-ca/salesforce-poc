@@ -8,7 +8,7 @@ const routes: Routes = [
       path: 'en',
       children: [
         { path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-        { path: '', loadChildren: () => import('./accessibility-demo/accessibility-demo.module').then(m => m.AccessibilityDemoModule) },
+        { path: '', loadChildren: () => import('./salesforce-demo/salesforce-demo.module').then(m => m.SalesforceDemoModule) },
         //This will direct to home, which will be redirected by the guard to the login page if required
         { path: '**', redirectTo: '' },
       ]
@@ -17,7 +17,7 @@ const routes: Routes = [
       path: 'fr',
       children: [
         { path: 'connexion', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-        { path: '', loadChildren: () => import('./accessibility-demo/accessibility-demo.module').then(m => m.AccessibilityDemoModule) },
+        { path: '', loadChildren: () => import('./salesforce-demo/salesforce-demo.module').then(m => m.SalesforceDemoModule) },
         //This will direct to home, which will be redirected by the guard to the login page if required
         { path: '**', redirectTo: '' },
       ]

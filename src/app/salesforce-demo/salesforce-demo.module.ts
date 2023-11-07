@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccessibilityDemoRoutingModule } from './accessibility-demo-routing.module';
+import { SalesforceDemoRoutingModule } from './salesforce-demo-routing.module';
 import { SharedModule } from '../@shared';
-import { AccessibilityDemoComponent } from './accessibility-demo.component';
+
 import {
   IrccDsAngularComponentsSharedModule,
   IrccDsAngularHeaderFooterModule
@@ -11,10 +11,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BackgroundInfoComponent } from './background-info/background-info.component';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
 import { HomeComponent } from './home/home.component';
+import { SalesforceDemoComponent } from './salesforce-demo.component';
 
 @NgModule({
   declarations: [
-    AccessibilityDemoComponent,
+    SalesforceDemoComponent,
     BackgroundInfoComponent,
     PersonalInformationComponent,
     HomeComponent
@@ -22,10 +23,10 @@ import { HomeComponent } from './home/home.component';
   imports: [
     CommonModule,
     TranslateModule,
-    AccessibilityDemoRoutingModule,
+    SalesforceDemoRoutingModule,
     SharedModule,
     IrccDsAngularHeaderFooterModule,
     IrccDsAngularComponentsSharedModule
   ]
 })
-export class AccessibilityDemoModule { }
+export class SalesforceDemoModule { }

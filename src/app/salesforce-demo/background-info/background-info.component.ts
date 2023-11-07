@@ -4,7 +4,7 @@ import { LanguageSwitchService } from '@app/@shared/language-switch/language-swi
 import { TranslateService } from '@ngx-translate/core';
 import { IProgressIndicatorConfig, IIconButtonComponentConfig } from 'ircc-ds-angular-component-library';
 import { Subscription } from 'rxjs';
-import { AccessbilityDemoFormStateService } from '../accessbility-demo-form-state.service';
+import { AccessbilityDemoFormStateService } from '../salesforce-demo-form-state.service';
 
 @Component({
   selector: 'app-background-info',
