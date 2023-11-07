@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
 import { SharedModule } from '@app/@shared';
+import { IrccDsAngularNavigationModule } from 'ircc-ds-angular-component-library';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { SharedModule } from '@app/@shared';
     TranslateModule,
     I18nModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    IrccDsAngularNavigationModule
   ],
   declarations: [
     ShellComponent
