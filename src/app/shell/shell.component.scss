@@ -3,8 +3,7 @@
     visibility: hidden;
 }
 
-.main-container {
-    max-width: 1036px;
+main {
     padding: 0px 164px 48px 164px;
     @media (max-width: 979px) {
         padding: 0px 40px 0 40px;
@@ -17,3 +16,48 @@
         margin-top: 60px;
     }
 }
+
+.secondary-text{
+    color: var(--text-secondary);
+}
+
+// ::ng-deep{ /*needs to be resolved in core - position fixed needs to be sticky*/
+//     .content{
+//         ircc-cl-lib-navigation{
+//             .lib-navigation.fixed {
+//                 position: sticky;
+//             }
+//          }   
+        
+//     }
+// }
+
+
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+
+    .page-content{
+        flex-basis: 70%;
+    }
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    gap: 9px;
+  }
+
+  .save-button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 56px;
+  }
+
+  h1 {
+    margin: 0 0 16px 0;
+  }

@@ -257,6 +257,10 @@ export class BackgroundInfoComponent implements OnInit {
         this.radioConfig8.id,
         new FormControl('', Validators.required)
       );
+
+      this.medicalForm.valueChanges.subscribe((change)=>{
+        console.log(change);
+      })
   }
 
   progressTabButtonEvent(event: Event) {

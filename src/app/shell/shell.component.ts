@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 
 import { Location } from '@angular/common';
-import { IProgressIndicatorConfig, LanguageHeaderFooterSwitchService } from 'ircc-ds-angular-component-library';
+import { INavigationConfig, INavigationItemHeading, INavigationItemLink, IProgressIndicatorConfig, LanguageHeaderFooterSwitchService, NavigationService } from 'ircc-ds-angular-component-library';
 import { environment } from '@env/environment';
 
 export enum Languages {
@@ -38,8 +38,140 @@ export class ShellComponent implements OnInit {
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: object,
     private location: Location,
-    private languageSwitchService: LanguageHeaderFooterSwitchService
+    private languageSwitchService: LanguageHeaderFooterSwitchService,
+    private navService: NavigationService
   ) { }
+
+
+
+  reason: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  };
+
+  purpose: INavigationItemHeading = {
+    id: 'purposeNavTitle',
+    label: 'Purpose',
+    type: 'heading',
+    iconLeading: '',
+    children: []
+  };
+
+  personal: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  residence: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  identification: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  work: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  travel: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  finance: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  family: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '#',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  medical: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  criminal: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Criminal',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  client: INavigationItemHeading = {
+    id: 'clientNavTitle',
+    label: 'Client details',
+    type: 'heading',
+    iconLeading: '',
+    children: []
+  }
+
+  rightNavConfig: INavigationConfig = {
+    id: 'right_nav',
+    size: 'small',
+    height: '71vh',
+    marginTop: 700,
+    scrolling: true,
+    fixed: false,
+    navigationConfig: [
+      this.purpose,
+      this.reason,
+      this.client,
+      this.personal, 
+      this.residence, 
+      this.identification, 
+      this.work, 
+      this.travel, 
+      this.finance, 
+      this.family, 
+      this.medical, 
+      this.criminal
+    ]
+  };
 
 
   progConfig : IProgressIndicatorConfig = {
@@ -75,6 +207,8 @@ export class ShellComponent implements OnInit {
       if (response) this.changeLang();  
       //TODO: This can be changed to simply (response) once the library changes have been published
     });
+
+    this.navService.setNavConfig(this.rightNavConfig);
   }
 
   /*************** LANGUAGE FUNCTIONS ********************/
