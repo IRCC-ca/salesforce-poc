@@ -24,7 +24,7 @@ export interface IDemoFormDataInterface {
 @Injectable({
   providedIn: 'root'
 })
-export class AccessbilityDemoFormStateService {
+export class SalesforceDemoFormStateService {
   private formData = new BehaviorSubject<IDemoFormDataInterface>({});
   formObs = this.formData.asObservable();
   private storageKey: string = 'formData';

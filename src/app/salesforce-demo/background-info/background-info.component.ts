@@ -4,8 +4,8 @@ import { LanguageSwitchService } from '@app/@shared/language-switch/language-swi
 import { TranslateService } from '@ngx-translate/core';
 import { IProgressIndicatorConfig, IIconButtonComponentConfig, IRadioInputComponentConfig, IInputComponentConfig } from 'ircc-ds-angular-component-library';
 import { Subscription } from 'rxjs';
-import { AccessbilityDemoFormStateService } from '../accessbility-demo-form-state.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SalesforceDemoFormStateService } from '../salesforce-demo-form-state.service';
 
 @Component({
   selector: 'app-background-info',
@@ -188,7 +188,7 @@ export class BackgroundInfoComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private formService: AccessbilityDemoFormStateService,
+    private formService: SalesforceDemoFormStateService,
     private translate: TranslateService,
     private altLang: LanguageSwitchService
   ) { }

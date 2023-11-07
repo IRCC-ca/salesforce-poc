@@ -22,7 +22,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, first } from 'rxjs';
 import { LanguageSwitchService } from '@app/@shared/language-switch/language-switch.service';
-import { AccessbilityDemoFormStateService, IDemoFormDataInterface } from '../salesforce-demo-form-state.service';
+import { SalesforceDemoFormStateService, IDemoFormDataInterface } from '../salesforce-demo-form-state.service';
 import { requiredTrueValidator } from '@app/@shared/shared-validators';
 
 
@@ -280,7 +280,7 @@ export class PersonalInformationComponent implements OnInit {
     private translate: TranslateService,
     private altLang: LanguageSwitchService,
     private router: Router,
-    private formService: AccessbilityDemoFormStateService,
+    private formService: SalesforceDemoFormStateService,
     private labelButton: LabelButtonService,
   ) { }
 
