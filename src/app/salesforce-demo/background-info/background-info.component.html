@@ -1,53 +1,29 @@
-<ircc-cl-lib-hidden-nav [config]="prevHNConfig"></ircc-cl-lib-hidden-nav>
-<div
-  class="page_container"
-  id="ds-cont"
->
-  <div
-    class="outer_header_stepper_container"
-    id="outer_header_stepper_container"
-  >
-    <div
-      class="header_stepper_container"
-      id="header_stepper_inner_container"
-    >
-      <div
-        class="stepper"
-      >
-        <ircc-cl-lib-progress-indicator
-          [config]="progressIndicatorConfig"
-          (tabClick)="progressTabButtonEvent($event)"
-        ></ircc-cl-lib-progress-indicator>
-      </div>
-    </div>
-  </div>
-  <div
-    class="body"
-  >
-    <h1>{{ 'ACC_DEMO.BACKGROUNDINFO' | translate }}</h1>
-    <p>{{ 'ACC_DEMO.PREVIOUS_PAGE.CONTENT' | translate }}</p>
-  </div>
-  <div class="buttons_container">
-    <div class="btn1">
-      <ircc-cl-lib-button
-        [iconDirection]="'left'"
-        [category]="'secondary'"
-        [icon]="'fa-light fa-arrow-left'"
-        (click)="previousPage()"
-        [fill]="true"
-      >
-        {{ 'ACC_DEMO.BUTTONS.PREVIOUS' | translate }}</ircc-cl-lib-button
-      >
-    </div>
-    <div class="btn2">
-      <ircc-cl-lib-button
-        [iconDirection]="'right'"
-        [icon]="'fa-light fa-arrow-right'"
-        (click)="nextPage()"
-        [fill]="true"
-      >
-        {{ 'ACC_DEMO.BUTTONS.NEXT' | translate }}</ircc-cl-lib-button
-      >
-    </div>
+<div class="home-container">
+  <h1>Medical History</h1>
+  <p>Provide some information about your medical history over the past five years.</p>
+  <ircc-cl-lib-radio-input [config]="radioConfig1"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-input [config]="inputConfig1"></ircc-cl-lib-input>
+  <ircc-cl-lib-radio-input [config]="radioConfig2"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="radioConfig3"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="radioConfig4"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="radioConfig5"></ircc-cl-lib-radio-input>
+  <ul>
+    <li>Syphilis is a disease caused by bacteria and may also be known as lues, syph or pox.</li>
+    <li>If you have a history of syphilis, it doesn't mean that you can't come to Canada. Once you complete your treatment, you can come to Canada.</li>
+  </ul>
+  <ircc-cl-lib-radio-input [config]="radioConfig6"></ircc-cl-lib-radio-input>
+  <p>Syphilis is treated with medication that is given as pills for 28 days or as 3 needles. The medications are called penicillin or doxycycline.</p>
+  <h2>Tuberculosis</h2>
+  <ul>
+    <li>Tuberculosis is a disease of the lungs caused by bacteria. It may also be known as TB, Potts disease, Koch's disease, scrofula, latent tuberculosis or extra-pulmonary tuberculosis.</li>
+    <li>If you have a history of tuberculosis, it doesn't mean that you can't come to Canada. Once you complete your treatment, you can come to Canada.</li>
+  </ul>
+  <ircc-cl-lib-radio-input [config]="radioConfig7"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="radioConfig8"></ircc-cl-lib-radio-input>
+  <div class="nav-button-container">
+    <button category="plain">Back</button>
+    <button>Save and continue</button>
   </div>
 </div>
+
+

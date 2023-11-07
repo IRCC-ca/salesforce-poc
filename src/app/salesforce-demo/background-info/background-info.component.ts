@@ -2,9 +2,10 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { LanguageSwitchService } from '@app/@shared/language-switch/language-switch.service';
 import { TranslateService } from '@ngx-translate/core';
-import { IProgressIndicatorConfig, IIconButtonComponentConfig } from 'ircc-ds-angular-component-library';
+import { IProgressIndicatorConfig, IIconButtonComponentConfig, IRadioInputComponentConfig, IInputComponentConfig } from 'ircc-ds-angular-component-library';
 import { Subscription } from 'rxjs';
-import { AccessbilityDemoFormStateService } from '../salesforce-demo-form-state.service';
+import { AccessbilityDemoFormStateService } from '../accessbility-demo-form-state.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-background-info',
@@ -27,6 +28,158 @@ export class BackgroundInfoComponent implements OnInit {
       }
     ]
   };
+
+  medicalForm = new FormGroup({});
+
+  radioConfig1: IRadioInputComponentConfig = {
+    id: 'radio_1',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'Have you had a medical exam performed by an IRCC authorized panel physician (doctor) within the last 12 months?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig2: IRadioInputComponentConfig = {
+    id: 'radio_2',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'Are you currently receiving dialysis treatment?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig3: IRadioInputComponentConfig = {
+    id: 'radio_3',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'Have you had a drug or alcohol addiction causing you to be a threat to yourself or others, or to be hospitalized?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig4: IRadioInputComponentConfig = {
+    id: 'radio_4',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'Have you had a mental health condition causing you to be a threat to yourself or others, or to be hospitalized?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig5: IRadioInputComponentConfig = {
+    id: 'radio_5',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'Have you ever been diagnosed with syphilis?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig6: IRadioInputComponentConfig = {
+    id: 'radio_6',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'Have you been treated for syphilis?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig7: IRadioInputComponentConfig = {
+    id: 'radio_7',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'In the last 2 years, were you diagnosed with tuberculosis?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  radioConfig8: IRadioInputComponentConfig = {
+    id: 'radio_8',
+    formGroup: this.medicalForm,
+    required: true,
+    label: 'In the last 5 years, have you been in close contact with a person with tuberculosis?',
+    options: [
+      {
+        text: 'Yes'
+      },
+      {
+        text: 'No'
+      }
+    ],
+    errorMessages: [
+      { key: 'required', errorLOV: 'This field is required' }
+    ]
+  };
+
+  inputConfig1: IInputComponentConfig = {
+    id: 'input_1',
+    formGroup: this.medicalForm,
+    label: 'If known, please provide your Immigraiton medical examination (IME) or Unique medical identifier (UMI) number. (optional)'
+  }
 
   altPathKey = '';
   altLangURL = '';
@@ -67,6 +220,43 @@ export class BackgroundInfoComponent implements OnInit {
       this.formService.progressIndicatorObs$.subscribe((response) => {
         this.progressIndicatorConfig = response;
       });
+
+      this.medicalForm.addControl(
+        this.radioConfig1.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.inputConfig1.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig2.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig3.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig4.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig5.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig6.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig7.id,
+        new FormControl('', Validators.required)
+      );
+      this.medicalForm.addControl(
+        this.radioConfig8.id,
+        new FormControl('', Validators.required)
+      );
   }
 
   progressTabButtonEvent(event: Event) {
