@@ -1,5 +1,5 @@
 {
-  "name": "ds-accessibility-demo",
+  "name": "salesforce-poc",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,11 @@
     "serve:sw": "npm run build -s && npx http-server ./dist -p 4200",
     "lint": "ng lint && stylelint \"src/**/*.scss\"",
     "test": "npm run write:env -s && ng test",
-    "test:ci": "npm run write:env -s && npm run lint -s && ng run ds-accessibility-demo:test:ci",
+    "test:ci": "npm run write:env -s && npm run lint -s && ng run salesforce-poc:test:ci",
     "write:env": "ngx-scripts env npm_package_version",
     "generate": "ng generate",
-    "translations:toJson": "node ./src/translations/ngx-translation-extract.js -r -i src/translations/DS-AccessibilityDemo-Strings.txt -l en-US,fr-FR -o src/translations",
-    "translations:toText": "node src/translations/ngx-translation-extract.js -l en-US,fr-FR -i src/translations/ -o src/translations/DS-AccessibilityDemo-Strings.txt --clean ",
+    "translations:toJson": "node ./src/translations/ngx-translation-extract.js -r -i src/translations/SalesforceDemo.txt -l en-US,fr-FR -o src/translations",
+    "translations:toText": "node src/translations/ngx-translation-extract.js -l en-US,fr-FR -i src/translations/ -o src/translations/SalesforceDemo.txt --clean ",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/en-US.json ./src/translations/fr-FR.json --clean --sort --format namespaced-json --marker _"
   },
   "dependencies": {
