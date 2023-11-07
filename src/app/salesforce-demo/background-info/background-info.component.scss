@@ -1,32 +1,24 @@
 @use "../salesforce-demo.component.scss";
 @use '../../../../node_modules/@ircc-ca/ds-sdc-core/util/device';
 
-.body {
-  max-width: 628px;
-}
-.buttons_container {
+.mh-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 64px;
-  max-width: 628px;
+  flex-direction: column;
 
-  @media (max-width: 525px) {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: space-between;
-    height: 116px;
-
-    width: 100%;
-    .btn1 {
-      @media (max-width: 525px) {
-        width: 100%;
-      }
-    }
-    .btn2 {
-      @media (max-width: 525px) {
-        width: 100%;
-      }
-    }
+  ircc-cl-lib-radio-input, ircc-cl-lib-input {
+    margin: 0 0 24px 0;
   }
+
+  ircc-cl-lib-input {
+    border-left: 4px solid var(--global-neutral-border, #868687);
+    padding-left: 24px;
+  }
+
+  .trailing-bullets {
+    margin-top: -12px;
+  }
+}
+
+.secondary-text {
+  color: var(--text-secondary);
 }
