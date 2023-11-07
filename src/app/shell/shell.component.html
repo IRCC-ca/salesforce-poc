@@ -1,0 +1,12 @@
+<div class="main-container">
+  <ircc-cl-lib-header [id]="'header'"></ircc-cl-lib-header>
+  <main>
+      <router-outlet></router-outlet>
+        <div class="date-modified-container">
+          <p class="date-modified">
+            {{ 'Home.DateModified' | translate }}: {{ dateModified }}
+          </p>
+        </div>  
+  </main>
+    <ircc-cl-lib-footer></ircc-cl-lib-footer>
+  </div>

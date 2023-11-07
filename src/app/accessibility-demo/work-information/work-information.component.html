@@ -1,0 +1,50 @@
+<ircc-cl-lib-hidden-nav [config]="nextHNConfig"></ircc-cl-lib-hidden-nav>
+<div
+  class="page_container"
+  id="ds-cont"
+>
+  <div
+    class="outer_header_stepper_container"
+    id="outer_header_stepper_container"
+  >
+    <div
+      class="header_stepper_container"
+      id="header_stepper_inner_container"
+    >
+      <div class="stepper">
+        <ircc-cl-lib-progress-indicator
+          [config]="progressIndicatorConfig"
+          (tabClick)="progressTabButtonEvent($event)"
+        ></ircc-cl-lib-progress-indicator>
+      </div>
+    </div>
+  </div>
+  <div
+    class="body"
+  >
+    <h1>{{ 'ACC_DEMO.WORKINFO' | translate }}</h1>
+    <p>{{ 'ACC_DEMO.PREVIOUS_PAGE.CONTENT' | translate }}</p>
+  </div>
+  <div class="buttons_container">
+    <div class="btn1">
+      <ircc-cl-lib-button
+        [iconDirection]="'left'"
+        [category]="'secondary'"
+        [icon]="'fa-light fa-arrow-left'"
+        (click)="previousPage()"
+        [fill]="true"
+      >
+        {{ 'ACC_DEMO.BUTTONS.PREVIOUS' | translate }}</ircc-cl-lib-button
+      >
+    </div>
+    <div class="btn2">
+      <ircc-cl-lib-button
+        [iconDirection]="'right'"
+        [icon]="'fa-light fa-arrow-right'"
+        [fill]="true"
+      >
+        {{ 'ACC_DEMO.BUTTONS.NEXT' | translate }}</ircc-cl-lib-button
+      >
+    </div>
+  </div>
+</div>

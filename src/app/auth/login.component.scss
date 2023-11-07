@@ -1,0 +1,57 @@
+.container {
+  width: 440px;
+
+  .headerContainer {
+    margin-top: 86px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .subheader {
+      margin-top: 24px;
+    }
+    .subheader, .errorBanner {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #59595A;
+      // --text: var(--text-secondary);
+    }
+  }
+
+  .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 16px;
+
+    .input {
+      width: 100%;
+    }
+  }
+
+  .submit-container {
+
+    .submit-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      margin-bottom: 32px; //Figure out what causes extra margin
+    }
+
+    .recover-reset {
+      justify-content: center;
+      display: flex;
+
+      .reset {
+        margin-left: 24px;
+      }
+    }
+  }
+}

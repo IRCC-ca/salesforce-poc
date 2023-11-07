@@ -1,0 +1,19 @@
+@use '../../../node_modules/@ircc-ca/ds-sdc-core/util/device';
+.hidden { 
+    visibility: hidden;
+}
+
+.main-container {
+    max-width: 1036px;
+    padding: 0px 164px 48px 164px;
+    @media (max-width: 979px) {
+        padding: 0px 40px 0 40px;
+    }
+    @include device.in-phone-layout() {
+        padding: 0px 16px 0 16px;
+    }
+
+    .date-modified-container {
+        margin-top: 60px;
+    }
+}

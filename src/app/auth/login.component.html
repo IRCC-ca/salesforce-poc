@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="headerContainer"> 
+  <h4 class="header"><strong>{{'LoginPage.signIn' | translate}}</strong></h4>
+  <div class="subheader">{{'LoginPage.EnterEmail' | translate}}</div>
+  <div class="errorBanner" *ngIf="error && !isLoading">
+    <ircc-cl-lib-banner [config]="invalidUserBannerConfig"></ircc-cl-lib-banner>
+  </div>
+</div>
+  <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+    <div>
+
+      <ng-container *ngIf="showMaxAttemptBanner">
+        <ircc-cl-lib-banner></ircc-cl-lib-banner>
+      </ng-container>
+
+      <div class="inputs">
+      <div *ngFor="let config of formConfig" class="input">
+        <ircc-cl-lib-input [config]="config"></ircc-cl-lib-input>
+      </div>
+    </div>
+
+    </div>
+    <div class="submit-container">
+      <div class="submit-button">
+        <button category="primary" size="small" type="submit" [disabled]="isLoading">
+          <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+          <span translate>{{'LoginPage.signIn' | translate }}</span>
+        </button>
+      </div>
+      <div class="recover-reset">
+        <a routerLink="">{{'LoginPage.recover' | translate }}</a>
+        <a routerLink="" class="reset">{{'LoginPage.reset' | translate}}</a>
+      </div>
+    </div>
+  </form>
+</div>

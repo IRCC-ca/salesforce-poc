@@ -1,0 +1,127 @@
+{
+	"OPPOSITE_LANGUAGE": "English",
+	"ROUTES": {
+		"Home": "acceuil",
+		"Home-alt": "home",
+		"Login": "connexion",
+		"Login-alt": "login",
+		"PersonalInfo": "informations-personnelles",
+		"WorkInfo": "information-de-travail",
+		"BackgroundInfo": "informations-preliminaires",
+		"BackgroundInfo-alt": "informations-preliminaires",
+		"WorkInfo-alt": "information-de-travail",
+		"PersonalInfo-alt": "informations-personnelles"
+	},
+	"Version": "Version",
+	"Home": {
+		"DateModified": "Date de modification",
+		"BeginTask": "Commencer la tâche"
+	},
+	"ERROR": {
+		"requiredRadioError": "Ce champ est obligatoire"
+	},
+	"AccessibilityDemo": {
+		"Title": "Demo d'accessibilité"
+	},
+	"Title": {
+		"Home": "Acceuil",
+		"PersonalInfo": "Informations-personnelles",
+		"WorkInfo": "Information-de-travail",
+		"BackgroundInfo": "Informations-preliminaires"
+	},
+	"ACC_DEMO": {
+		"MODAL_TITLE": "Pas",
+		"HAMBURGER_ARIA": "Ouvrez l'indicateur de progression",
+		"BACKGROUNDINFO": "Informations d'arrière-plan",
+		"WORKINFO": "Informations professionnelles",
+		"PREVIOUS_PAGE": {
+			"CONTENT": "Cette page ne fait pas partie du prototype. Veuillez utiliser le bouton ci-dessous pour revenir à l'écran précédent."
+		},
+		"NEXT_PAGE": "Ceci est un exemple d'une page suivante - il est simplement là à des fins de démonstration et n'est pas configuré pour une accessibilité correcte. Notez la mise à jour de l'indicateur de progression en haut de la page. Vous pouvez naviguer en utilisant l'indicateur de progression",
+		"ERRORS": {
+			"FAMILY_NAME_REQUIRED": "Ce champ est vide. Veuillez saisir un nom de famille",
+			"DOB_NO_SELECTION_REQUIRED": "Aucune sélection n'a été faite. Veuillez remplir les champs pour compléter votre date de naissance.",
+			"DOB_REQUIRED": "Veuillez remplir les champs manquants pour terminer votre date de naissance.",
+			"DECLARATION_REQUIRED": "Aucune sélection n'a été faite. Veuillez faire une sélection pour compléter votre déclaration",
+			"DECLARATION_CUSTOM": "Vous devez accepter de continuer"
+		},
+		"STEPPER": {
+			"STEP3": "Informations professionnelles",
+			"STEP4": "Réviser et soumettre"
+		},
+		"PERSONAL_INFO": {
+			"ERROR_BANNER": {
+				"TITLE": "Information manquante",
+				"CONTENT": "Il y a des erreurs non résolues ci-dessous."
+			},
+			"H1": "Informations personnelles",
+			"BODY": "Entrez les informations correctes dans les espaces ci-dessous tels qu'il apparaît dans vos documents de passeport, de voyage ou d'identité.",
+			"FAMILY_NAME_INPUT": {
+				"LABEL": "Nom de famille (obligatoire)",
+				"DESC": "Ceci est votre nom de famille ou votre nom",
+				"BANNER": "Si vous n'avez pas de nom de famille, fournissez tous vos noms donnés dans le champ de nom de famille et laissez le champ des noms donnés vide.",
+				"BANNER_CLOSE": "Bannière d'informations sur le nom de famille. Fermer"
+			},
+			"GIVEN_NAME_INPUT": {
+				"LABEL": "Prénom",
+				"DESC": "Ceci est votre prénom et deuxième prénom, le cas échéant"
+			},
+			"SEX_AT_BIRTH_RADIO": {
+				"LABEL": "Sexe à la naissance (requis)",
+				"FEMALE": "F - femelle",
+				"MALE": "M - mâle",
+				"OTHER": "X - un autre sexe",
+				"BANNER": "<p>Cette question est posée à des fins de vérification d'identité uniquement. <br><br>Le sexe fait référence à votre statut à la naissance et peut ne pas refléter votre identité de genre précise.</p>",
+				"BANNER_CLOSE": "Bannière de sexe à la naissance des informations. Fermer"
+			},
+			"DATE_OF_BIRTH": {
+				"LABEL": "Date de naissance"
+			},
+			"COUNTRY_OF_BIRTH": {
+				"LABEL": "Pays / territoire de naissance (requis)",
+				"OPTIONS": {
+					"CANADA": "Canada",
+					"USA": "United States of America",
+					"MEXICO": "Mexico"
+				}
+			},
+			"CITY_OF_BIRTH": {
+				"LABEL": "Ville ou ville de naissance (requise)",
+				"OPTIONS": {
+					"CANADA": {
+						"OTTAWA": "Ottawa",
+						"ST_JOHNS": "St. John's",
+						"VICTORIA": "Victoria",
+						"CALGARY": "Calgary"
+					},
+					"USA": {
+						"TAMPA": "Tampa Bay",
+						"WASHINGTON": "Washington",
+						"NEW_YORK": "New York",
+						"OAKLAND": "Oakland"
+					},
+					"MEXICO": {
+						"MEXICO": "Mexico City"
+					}
+				}
+			},
+			"DECLARATION": {
+				"INLINE_LABEL": "Je déclare que les informations ci-dessus sont vraies et exactes.",
+				"LABEL": "Déclaration (requise)"
+			}
+		},
+		"MORE_INFO": "Plus d'information",
+		"BUTTONS": {
+			"PREVIOUS": "Étape précédente",
+			"NEXT": "Sauvegarder et continuer",
+			"PREVIOUS_PAGE_NEXT": "Suivant",
+			"HAMBURGER": "Menu"
+		},
+		"BREADCRUMB_COMPONENT": {
+			"ADDITIONAL_LINKS": "Liens supplémentaires"
+		}
+	},
+	"General": {
+		"Placeholder": "Choisir une option"
+	}
+}
