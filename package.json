@@ -28,6 +28,7 @@
     "@angular/platform-browser-dynamic": "~14.2.5",
     "@angular/router": "~14.2.5",
     "@angular/service-worker": "~14.2.5",
+    "@apollo/client": "^3.8.7",
     "@auth0/angular-jwt": "^5.1.2",
     "@fortawesome/fontawesome-free": "^6.1.2",
     "@ircc-ca/ds-sdc-core": "^1.5.6-beta.0",
@@ -35,12 +36,12 @@
     "@popperjs/core": "^2.11.0",
     "amplify": "^0.0.11",
     "aws-amplify": "^5.0.9",
+    "dot-object": "~2.1.4",
+    "fast-csv": "~4.3.6",
     "ircc-ds-angular-component-library": "^1.1.6-beta.0",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "fast-csv": "~4.3.6",
-    "dot-object": "~2.1.4"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-builders/jest": "^14.0.1",
