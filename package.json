@@ -38,7 +38,7 @@
     "aws-amplify": "^5.0.9",
     "dot-object": "~2.1.4",
     "fast-csv": "~4.3.6",
-    "ircc-ds-angular-component-library": "^1.1.6-beta.0",
+    "ircc-ds-angular-component-library": "^1.1.7",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
