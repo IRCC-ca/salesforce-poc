@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 
 import { Location } from '@angular/common';
-import { LanguageHeaderFooterSwitchService } from 'ircc-ds-angular-component-library';
+import { IProgressIndicatorConfig, LanguageHeaderFooterSwitchService } from 'ircc-ds-angular-component-library';
 import { environment } from '@env/environment';
 
 export enum Languages {
@@ -41,6 +41,29 @@ export class ShellComponent implements OnInit {
     private languageSwitchService: LanguageHeaderFooterSwitchService
   ) { }
 
+
+  progConfig : IProgressIndicatorConfig = {
+    id: 'prog_indicator',
+    steps: [
+      {title: 'Fill in application', tagConfig: {
+      id: 'progress_indicator_step1',
+      type: 'primary'
+      }},
+      {title: 'Review application', tagConfig: {
+        id: 'progress_indicator_step1',
+        type: 'locked'
+        }},
+        {title: 'Pay fees', tagConfig: {
+          id: 'progress_indicator_step1',
+          type: 'locked'
+          }},
+          {title: 'Sign and submit', tagConfig: {
+            id: 'progress_indicator_step1',
+            type: 'locked'
+            }},
+    
+    ]
+  }
   /** Sets the alt language string and subscribes to language changes that occur if the link is clicked */
   ngOnInit() {
     this.altLang.getAltLangLink().subscribe((altLang: string) => {
