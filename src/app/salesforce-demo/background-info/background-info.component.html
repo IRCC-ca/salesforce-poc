@@ -21,8 +21,8 @@
   <ircc-cl-lib-radio-input [config]="radioConfig7"></ircc-cl-lib-radio-input>
   <ircc-cl-lib-radio-input [config]="radioConfig8"></ircc-cl-lib-radio-input>
   <div class="nav-button-container">
-    <button category="plain"><ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back</button>
-    <button>Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right"></ircc-cl-lib-icon></button>
+    <button (click)="previousPage()" category="plain"><ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back</button>
+    <button (click)="nextPage()">Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right"></ircc-cl-lib-icon></button>
   </div>
 </div>
 
