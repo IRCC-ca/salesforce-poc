@@ -22,3 +22,16 @@
 .secondary-text {
   color: var(--text-secondary);
 }
+
+.nav-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+}
