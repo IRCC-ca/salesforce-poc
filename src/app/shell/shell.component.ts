@@ -62,8 +62,8 @@ export class ShellComponent implements OnInit {
   };
 
   personal: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'personalLink',
+    label: 'Personal details',
     type: 'link',
     href: '',
     children: [],
@@ -71,8 +71,8 @@ export class ShellComponent implements OnInit {
   }
 
   residence: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'residenceLink',
+    label: 'Residence history',
     type: 'link',
     href: '',
     children: [],
@@ -80,8 +80,8 @@ export class ShellComponent implements OnInit {
   }
 
   identification: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'identificationLink',
+    label: 'Identification',
     type: 'link',
     href: '',
     children: [],
@@ -89,8 +89,8 @@ export class ShellComponent implements OnInit {
   }
 
   work: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'workLink',
+    label: 'Work and school',
     type: 'link',
     href: '',
     children: [],
@@ -98,8 +98,8 @@ export class ShellComponent implements OnInit {
   }
 
   travel: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'travelLink',
+    label: 'Travel information',
     type: 'link',
     href: '',
     children: [],
@@ -107,8 +107,8 @@ export class ShellComponent implements OnInit {
   }
 
   finance: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'financeLink',
+    label: 'Financial details',
     type: 'link',
     href: '',
     children: [],
@@ -116,17 +116,17 @@ export class ShellComponent implements OnInit {
   }
 
   family: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'familyLink',
+    label: 'Family details',
     type: 'link',
-    href: '#',
+    href: '',
     children: [],
     indicator: {status:'success', icon:'fa-regular fa-circle-check'}
   }
 
   medical: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Reason for visit',
+    id: 'medicalLink',
+    label: 'Medical history',
     type: 'link',
     href: '',
     children: [],
@@ -134,8 +134,8 @@ export class ShellComponent implements OnInit {
   }
 
   criminal: INavigationItemLink = {
-    id: 'reasonLink',
-    label: 'Criminal',
+    id: 'criminalLink',
+    label: 'Criminal history',
     type: 'link',
     href: '',
     children: [],
