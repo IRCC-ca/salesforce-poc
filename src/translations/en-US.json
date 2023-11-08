@@ -7,8 +7,8 @@
 		"Login-alt": "connexion",
 		"PersonalInfo": "personal-information",
 		"WorkInfo": "work-information",
-		"BackgroundInfo": "background-information",
-		"BackgroundInfo-alt": "background-information",
+		"MedicalHistory": "medical-history",
+		"MedicalHistory-alt": "histoire-medical",
 		"WorkInfo-alt": "work-information",
 		"PersonalInfo-alt": "personal-information"
 	},
