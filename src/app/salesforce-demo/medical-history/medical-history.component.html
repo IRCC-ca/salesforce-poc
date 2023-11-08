@@ -1,11 +1,7 @@
 <div class="mh-container">
-      <div
-      class="error_banner"
-      *ngIf="showErrorBanner"
-      #errorBanner
-    >
-      <ircc-cl-lib-banner [config]="errorBannerConfig"></ircc-cl-lib-banner>
-    </div>
+  <div class="error_banner" *ngIf="showErrorBanner" #errorBanner>
+    <ircc-cl-lib-banner [config]="errorBannerConfig"></ircc-cl-lib-banner>
+  </div>
   <h1>Medical History</h1>
   <p class="secondary-text">Provide some information about your medical history over the past five years.</p>
   <ircc-cl-lib-radio-input [config]="radioConfig1"></ircc-cl-lib-radio-input>
@@ -16,20 +12,27 @@
   <ircc-cl-lib-radio-input [config]="radioConfig5"></ircc-cl-lib-radio-input>
   <ul class="trailing-text">
     <li>Syphilis is a disease caused by bacteria and may also be known as lues, syph or pox.</li>
-    <li>If you have a history of syphilis, it doesn't mean that you can't come to Canada. Once you complete your treatment, you can come to Canada.</li>
+    <li>If you have a history of syphilis, it doesn't mean that you can't come to Canada. Once you complete your
+      treatment, you can come to Canada.</li>
   </ul>
   <ircc-cl-lib-radio-input [config]="radioConfig6"></ircc-cl-lib-radio-input>
-  <p class="trailing-text">Syphilis is treated with medication that is given as pills for 28 days or as 3 needles. The medications are called penicillin or doxycycline.</p>
+  <p class="trailing-text">Syphilis is treated with medication that is given as pills for 28 days or as 3 needles. The
+    medications are called penicillin or doxycycline.</p>
   <h2>Tuberculosis</h2>
   <ul class="secondary-text">
-    <li>Tuberculosis is a disease of the lungs caused by bacteria. It may also be known as TB, Potts disease, Koch's disease, scrofula, latent tuberculosis or extra-pulmonary tuberculosis.</li>
-    <li>If you have a history of tuberculosis, it doesn't mean that you can't come to Canada. Once you complete your treatment, you can come to Canada.</li>
+    <li>Tuberculosis is a disease of the lungs caused by bacteria. It may also be known as TB, Potts disease, Koch's
+      disease, scrofula, latent tuberculosis or extra-pulmonary tuberculosis.</li>
+    <li>If you have a history of tuberculosis, it doesn't mean that you can't come to Canada. Once you complete your
+      treatment, you can come to Canada.</li>
   </ul>
   <ircc-cl-lib-radio-input [config]="radioConfig7"></ircc-cl-lib-radio-input>
   <ircc-cl-lib-radio-input [config]="radioConfig8"></ircc-cl-lib-radio-input>
   <div class="nav-button-container">
-    <button (click)="previousPage()" category="plain"><ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back</button>
-    <button (click)="navButton()">Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right"></ircc-cl-lib-icon></button>
+    <button (click)="previousPage()" category="plain">
+      <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back
+    </button>
+    <button (click)="navButton()">Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right">
+      </ircc-cl-lib-icon></button>
   </div>
 </div>
 

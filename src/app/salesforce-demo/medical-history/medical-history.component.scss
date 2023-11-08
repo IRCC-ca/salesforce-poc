@@ -17,10 +17,15 @@
   .trailing-bullets {
     margin-top: -12px;
   }
+
+  .trailing-text {
+    margin-top: 0;
+  }
 }
 
 .secondary-text {
   color: var(--text-secondary);
+  margin-top: 0;
 }
 
 .nav-button-container {
