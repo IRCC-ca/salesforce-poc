@@ -38,7 +38,7 @@ export class SalesforceDemoFormStateService {
     selected: 1,
     steps: [
       {
-        title: 'ACC_DEMO.BACKGROUNDINFO',
+        title: 'Medical History',
         tagConfig: {
           id: 'progress_indicator_step1',
           type: 'success'
@@ -110,9 +110,9 @@ export class SalesforceDemoFormStateService {
         switch (eventInt) {
           case 0:
             if (this.router.url !== lang +
-              '/' + this.translate.instant('ROUTES.BackgroundInfo'))
+              '/' + this.translate.instant('ROUTES.MedicalHistory'))
               this.router.navigateByUrl(lang +
-              '/' + this.translate.instant('ROUTES.BackgroundInfo'));
+              '/' + this.translate.instant('ROUTES.MedicalHistory'));
             break;
           case 1:
             if (this.router.url !== lang +
@@ -151,8 +151,8 @@ export class SalesforceDemoFormStateService {
     const lang = curLang === 'en-US' || curLang === 'en' ? 'en' : 'fr';
 
     const homePage = '/' + lang //base route 
-    const backgroundInfoPage = '/' + lang +
-      '/' + this.translate.instant('ROUTES.BackgroundInfo');
+    const medicalHistoryPage = '/' + lang +
+      '/' + this.translate.instant('ROUTES.MedicalHistory');
     const personalInfoPage = '/' + lang +
       '/' + this.translate.instant('ROUTES.PersonalInfo');
     const workInfoPage = '/' + lang +
@@ -161,12 +161,12 @@ export class SalesforceDemoFormStateService {
     switch (this.router.url) {
       case homePage:
         if (action === 'next') {
-          this.router.navigateByUrl(backgroundInfoPage);
+          this.router.navigateByUrl(medicalHistoryPage);
         } else {
           this.router.navigateByUrl(homePage)
         }
         break;
-      case backgroundInfoPage:
+      case medicalHistoryPage:
         if (action === 'next') {
           this.router.navigateByUrl(personalInfoPage);
         } else {
@@ -177,7 +177,7 @@ export class SalesforceDemoFormStateService {
         if (action === 'next') {
           this.router.navigateByUrl(workInfoPage);
         } else {
-          this.router.navigateByUrl(backgroundInfoPage);
+          this.router.navigateByUrl(medicalHistoryPage);
         }
         break;
       case workInfoPage:

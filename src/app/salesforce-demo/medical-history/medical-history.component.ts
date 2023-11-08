@@ -8,11 +8,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SalesforceDemoFormStateService } from '../salesforce-demo-form-state.service';
 
 @Component({
-  selector: 'app-background-info',
-  templateUrl: './background-info.component.html',
-  styleUrls: ['./background-info.component.scss']
+  selector: 'app-medical-history',
+  templateUrl: './medical-history.component.html',
+  styleUrls: ['./medical-history.component.scss']
 })
-export class BackgroundInfoComponent implements OnInit {
+export class MedicalHistoryComponent implements OnInit {
   routerSub?: Subscription;
   progressIndicatorSub?: Subscription;
   progressIndicatorConfig: IProgressIndicatorConfig = {
@@ -204,7 +204,7 @@ export class BackgroundInfoComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.updateProgressBarOrientation();
 
-    this.altLang.setAltLangLink('BackgroundInfo');
+    this.altLang.setAltLangLink('MedicalHistory');
 
     this.formService.updateSelected(0);
     //if the page has moved to this one via a back or forward browser button, this detects the move and updates the page.

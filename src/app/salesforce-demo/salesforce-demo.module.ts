@@ -8,7 +8,7 @@ import {
   IrccDsAngularHeaderFooterModule
 } from 'ircc-ds-angular-component-library';
 import { TranslateModule } from '@ngx-translate/core';
-import { BackgroundInfoComponent } from './background-info/background-info.component';
+import { MedicalHistoryComponent } from './medical-history/medical-history.component';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
 import { HomeComponent } from './home/home.component';
 import { SalesforceDemoComponent } from './salesforce-demo.component';
@@ -16,7 +16,7 @@ import { SalesforceDemoComponent } from './salesforce-demo.component';
 @NgModule({
   declarations: [
     SalesforceDemoComponent,
-    BackgroundInfoComponent,
+    MedicalHistoryComponent,
     PersonalInformationComponent,
     HomeComponent
   ],
