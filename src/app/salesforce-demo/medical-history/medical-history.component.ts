@@ -23,6 +23,72 @@ import { Apollo, gql } from "apollo-angular";
 import { apiservice } from "../apiservice.service";
 import { HttpHeaders } from "@angular/common/http";
 
+
+const CREATE_ACCOUNTS = gql`mutation AccountMedical(
+  $poc_exam__c: Boolean!
+  $poc_ime__c : String!
+  $poc_dialysis__c : Boolean!
+  $poc_addiction__c : Boolean!
+  $poc_hospitalized__c : Boolean!
+  $poc_syphilis__c : Boolean!
+  $poc_syphilis_treated__c : Boolean!
+  $poc_tb_two__c : Boolean!
+  $poc_tb_five__c : Boolean!
+  ){
+  uiapi {
+    AccountCreate(input: {
+      Account: {
+      Name: "Test Five"
+      poc_exam__c: $poc_exam__c
+      poc_ime__c : $poc_ime__c
+      poc_dialysis__c : $ poc_dialysis__c
+      poc_addiction__c : $poc_addiction__c
+      poc_hospitalized__c : $poc_hospitalized__c
+      poc_syphilis__c : $poc_syphilis__c
+      poc_syphilis_treated__c : $poc_syphilis_treated__c
+      poc_tb_two__c : $poc_tb_two__c
+      poc_tb_five__c : $poc_tb_five__c
+
+      }
+    }) {
+      Record {
+        Id
+        Name {
+            value
+        }
+        poc_exam__c {
+            value
+        }
+        poc_ime__c {
+            value
+        }
+        poc_dialysis__c {
+            value
+        } 
+        poc_addiction__c {
+            value
+        }
+        poc_hospitalized__c {
+            value
+        }
+        poc_syphilis__c {
+            value
+        }
+        poc_syphilis_treated__c {
+            value
+        }
+        poc_tb_two__c {
+            value
+        }
+        poc_tb_five__c {
+            value
+        }
+      }
+    }
+  }
+}
+`
+
 @Component({
   selector: "app-medical-history",
   templateUrl: "./medical-history.component.html",
@@ -201,6 +267,7 @@ export class MedicalHistoryComponent implements OnInit {
 
   innerWidth = 0;
 
+
   constructor(
     private router: Router,
     private formService: SalesforceDemoFormStateService,
@@ -277,6 +344,8 @@ export class MedicalHistoryComponent implements OnInit {
     });
   }
 
+
+
   /**
    * Update the progress indicator status (unlock/lock the next element)
    */
@@ -299,91 +368,69 @@ export class MedicalHistoryComponent implements OnInit {
     }
   }
 
+  convertBool(value: string | boolean){
+    return value === 'Yes' ? true : false;
+  }
+
   /**
    * Once triggered, this tracks if the form is valid and updates the showErrorBanner variable accordingly
    */
   navButton() {
     this.medicalForm.markAllAsTouched();
     this.updateProgressIndicator();
-    if (!this.medicalForm.valid) {
-      this.showErrorBanner = true;
-      this.medicalForm.valueChanges.subscribe(() => {
-        this.showErrorBanner = !this.medicalForm.valid;
-        this.updateProgressIndicator();
-      });
-
-      setTimeout(() => {
-        this.errorBannerRef?.nativeElement.scrollIntoView({
-          behavior: "smooth",
-        });
-      });
-    } else {
-      const tempConfig = this.progressIndicatorConfig;
-      if (tempConfig.steps) {
-        tempConfig.steps[1].tagConfig.type = "success";
-        tempConfig.steps[2].tagConfig.type = "primary";
-      }
-      this.formService.updateProgressIndicator(tempConfig);
-      this.nextPage();
-    } //NOTE: No need to deal with cases not covered above, since those will result in navigation!
-
+    console.log(this.medicalForm);
     this.apollo
-      .watchQuery({
-        query: gql`
-          query accounts {
-            uiapi {
-              query {
-                Account {
-                  edges {
-                    node {
-                      Id
-                      Name {
-                        value
-                      }
-                      poc_exam__c {
-                        value
-                      }
-                      poc_ime__c {
-                        value
-                      }
-                      poc_dialysis__c {
-                        value
-                      }
-                      poc_addiction__c {
-                        value
-                      }
-                      poc_hospitalized__c {
-                        value
-                      }
-                      poc_syphilis__c {
-                        value
-                      }
-                      poc_syphilis_treated__c {
-                        value
-                      }
-                      poc_tb_two__c {
-                        value
-                      }
-                      poc_tb_five__c {
-                        value
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
+      .mutate({
+        mutation: CREATE_ACCOUNTS,
+        variables: {
+          poc_exam__c: this.convertBool(this.medicalForm.get(this.radioConfig1.id)?.value),
+          poc_ime__c : this.medicalForm.get(this.inputConfig1.id)?.value,
+          poc_dialysis__c : this.convertBool(this.medicalForm.get(this.radioConfig2.id)?.value),
+          poc_addiction__c : this.convertBool(this.medicalForm.get(this.radioConfig3.id)?.value),
+          poc_hospitalized__c : this.convertBool(this.medicalForm.get(this.radioConfig4.id)?.value),
+          poc_syphilis__c : this.convertBool(this.medicalForm.get(this.radioConfig5.id)?.value),
+          poc_syphilis_treated__c : this.convertBool(this.medicalForm.get(this.radioConfig6.id)?.value),
+          poc_tb_two__c : this.convertBool(this.medicalForm.get(this.radioConfig7.id)?.value),
+          poc_tb_five__c : this.convertBool(this.medicalForm.get(this.radioConfig8.id)?.value)
+        },
         context: {
           headers: new HttpHeaders().set(
             "Authorization",
             "Bearer " + localStorage.getItem("access_token")
           ),
         },
-      })
-      .valueChanges.subscribe((result: any) => {
-        console.log(result);
-      });
+      }).subscribe(
+        ({ data }) => {
+          console.log('got data', data);
+          this.nextPage();
+        },
+        error => {
+          console.log('there was an error sending the query', error);
+        },
+      );
+
+      if (!this.medicalForm.valid) {
+        this.showErrorBanner = true;
+        this.medicalForm.valueChanges.subscribe(() => {
+          this.showErrorBanner = !this.medicalForm.valid;
+          this.updateProgressIndicator();
+        });
+  
+        setTimeout(() => {
+          this.errorBannerRef?.nativeElement.scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      } else {
+        const tempConfig = this.progressIndicatorConfig;
+        if (tempConfig.steps) {
+          tempConfig.steps[1].tagConfig.type = "success";
+          tempConfig.steps[2].tagConfig.type = "primary";
+        }
+        this.formService.updateProgressIndicator(tempConfig);
+ 
+      } //NOTE: No need to deal with cases not covered above, since those will result in navigation!
+  
   }
 
   progressTabButtonEvent(event: Event) {

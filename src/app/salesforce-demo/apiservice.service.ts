@@ -43,16 +43,11 @@ export class apiservice {
     );
 
     return this.http.post<any>(
-      "https://aggrenierdevsandbox-dev-ed.develop.my.salesforce.com/services/oauth2/token",
+      this.apiUri,
       body.toString(),
       {
         headers: headers,
       }
     );
-    // return this.http.post<any>(`${this.apiUri}`, this.body, {
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //   },
-    // });
   }
 }
