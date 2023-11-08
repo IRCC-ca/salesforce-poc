@@ -1,5 +1,8 @@
 <div class="home-container">
-  <h1></h1>
-  <ircc-cl-lib-button [config]="continueButtonConfig" (click)="nextPage()">{{ 'Home.BeginTask' | translate }}</ircc-cl-lib-button>
+  <h1>Login into Salesforce</h1>
+
+  <ircc-cl-lib-input [config]="inputUserName"></ircc-cl-lib-input>
+  <ircc-cl-lib-input [config]="inputPassword"></ircc-cl-lib-input>
+  <ircc-cl-lib-button [config]="continueButtonConfig" (click)="submitForm()">{{ 'Home.BeginTask' | translate }}</ircc-cl-lib-button>
 </div>
 

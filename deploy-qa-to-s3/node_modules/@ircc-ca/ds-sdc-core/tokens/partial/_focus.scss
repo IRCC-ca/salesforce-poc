@@ -1,0 +1,55 @@
+/* stylelint-disable selector-max-universal */
+@use "../../util/color" as color;
+@use "../../util/theme" as theme;
+@use "../template-const" as template-const;
+@use "../sizes" as sizes;
+
+@mixin light-colors($palette) {
+  --focus-border: #{color.mix-token($palette, 700)};
+}
+
+@mixin dark-colors($palette) {
+  --focus-border: #{color.mix-token($palette, 600)};
+}
+
+@mixin tokens($palette) {
+  html {
+    @include light-colors($palette);
+  }
+
+  html[scheme="dark"] {
+    @include dark-colors($palette);
+  }
+
+  html[scheme="system"] {
+    @media (prefers-color-scheme: light) {
+      @include light-colors($palette);
+    }
+    @media (prefers-color-scheme: dark) {
+      @include dark-colors($palette);
+    }
+  }
+}
+
+@mixin create($palette: focus) {
+  @include tokens($palette);
+  @include selector {
+    @include layout();
+  }
+}
+
+@mixin layout {
+  outline: var(--focus-border) solid sizes.$outline-width;
+  outline-offset: sizes.$outline-width;
+  box-shadow: sizes.$focus-shadow;
+  z-index: 10;
+  overflow: visible;
+  position: relative;
+  border-radius: 4px;
+}
+
+@mixin selector {
+  *:focus-visible {
+    @content;
+  }
+}

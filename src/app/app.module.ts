@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { CustomPageTitleStrategy } from './@shared/title-strategy';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { CustomPageTitleStrategy } from './@shared/title-strategy';
     TranslateModule.forRoot(),
     SharedModule,
     ShellModule,
-    AppRoutingModule // must be imported as the last module as it contains the fallback route
+    AppRoutingModule,
+    GraphQLModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
   providers: [
