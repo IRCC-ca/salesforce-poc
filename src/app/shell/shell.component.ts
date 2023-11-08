@@ -130,7 +130,7 @@ export class ShellComponent implements OnInit {
     type: 'link',
     href: 'en/' + 'medical-history',
     children: [],
-    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+    indicator: {status:'primary', icon:'fa-regular fa-circle-half-stroke'}
   }
 
   criminal: INavigationItemLink = {
@@ -139,7 +139,7 @@ export class ShellComponent implements OnInit {
     type: 'link',
     href: 'en/' + 'personal-information',
     children: [],
-    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+    indicator: {status:'neutral', icon:'fa-regular fa-circle'}
   }
 
   client: INavigationItemHeading = {
