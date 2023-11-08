@@ -1,8 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { LanguageSwitchService } from '@app/@shared/language-switch/language-switch.service';
 import { TranslateService } from '@ngx-translate/core';
-import { IProgressIndicatorConfig, IIconButtonComponentConfig, IRadioInputComponentConfig, IInputComponentConfig } from 'ircc-ds-angular-component-library';
+import { IProgressIndicatorConfig, IIconButtonComponentConfig, IRadioInputComponentConfig, IInputComponentConfig, IBannerConfig } from 'ircc-ds-angular-component-library';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SalesforceDemoFormStateService } from '../salesforce-demo-form-state.service';
@@ -13,6 +13,8 @@ import { SalesforceDemoFormStateService } from '../salesforce-demo-form-state.se
   styleUrls: ['./medical-history.component.scss']
 })
 export class MedicalHistoryComponent implements OnInit {
+  showErrorBanner = false;
+  @ViewChild('errorBanner') errorBannerRef?: ElementRef;
   routerSub?: Subscription;
   progressIndicatorSub?: Subscription;
   progressIndicatorConfig: IProgressIndicatorConfig = {
@@ -27,6 +29,15 @@ export class MedicalHistoryComponent implements OnInit {
         href: 'ds-cont'
       }
     ]
+  };
+
+
+  errorBannerConfig: IBannerConfig = {
+    id: 'error_banner',
+    type: 'critical',
+    title: 'ACC_DEMO.PERSONAL_INFO.ERROR_BANNER.TITLE',
+    content: 'ACC_DEMO.PERSONAL_INFO.ERROR_BANNER.CONTENT',
+    rounded: true
   };
 
   medicalForm = new FormGroup({});
@@ -262,6 +273,58 @@ export class MedicalHistoryComponent implements OnInit {
         console.log(change);
       })
   }
+
+  /**
+   * Update the progress indicator status (unlock/lock the next element)
+   */
+  updateProgressIndicator() {
+    if (
+      this.progressIndicatorConfig.steps &&
+      (this.progressIndicatorConfig.steps[2].tagConfig.type === 'locked' ||
+        this.progressIndicatorConfig.steps[2].tagConfig.type === 'notStarted')
+    ) {
+      const tempConfig = this.progressIndicatorConfig;
+      if (tempConfig.steps) {
+        if (this.medicalForm.valid) {
+          tempConfig.steps[2].tagConfig.type = 'notStarted';
+          this.formService.updateProgressIndicator(tempConfig);
+        } else {
+          tempConfig.steps[2].tagConfig.type = 'locked';
+          this.formService.updateProgressIndicator(tempConfig);
+        }
+      }
+    }
+  }
+
+  /**
+   * Once triggered, this tracks if the form is valid and updates the showErrorBanner variable accordingly
+   */
+  navButton() {
+    this.medicalForm.markAllAsTouched();
+    this.updateProgressIndicator();
+    if (!this.medicalForm.valid) {
+      this.showErrorBanner = true;
+      this.medicalForm.valueChanges.subscribe(() => {
+        this.showErrorBanner = !this.medicalForm.valid;
+        this.updateProgressIndicator();
+      });
+
+      setTimeout(() => {
+        this.errorBannerRef?.nativeElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    } else {
+      const tempConfig = this.progressIndicatorConfig;
+      if (tempConfig.steps) {
+        tempConfig.steps[1].tagConfig.type = 'success';
+        tempConfig.steps[2].tagConfig.type = 'primary';
+      }
+      this.formService.updateProgressIndicator(tempConfig);
+      this.nextPage();
+    } //NOTE: No need to deal with cases not covered above, since those will result in navigation!
+  }
+
 
   progressTabButtonEvent(event: Event) {
     this.formService.progressTabButtonEvent(event);

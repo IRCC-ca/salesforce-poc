@@ -1,4 +1,11 @@
 <div class="mh-container">
+      <div
+      class="error_banner"
+      *ngIf="showErrorBanner"
+      #errorBanner
+    >
+      <ircc-cl-lib-banner [config]="errorBannerConfig"></ircc-cl-lib-banner>
+    </div>
   <h1>Medical History</h1>
   <p class="secondary-text">Provide some information about your medical history over the past five years.</p>
   <ircc-cl-lib-radio-input [config]="radioConfig1"></ircc-cl-lib-radio-input>
@@ -22,7 +29,7 @@
   <ircc-cl-lib-radio-input [config]="radioConfig8"></ircc-cl-lib-radio-input>
   <div class="nav-button-container">
     <button (click)="previousPage()" category="plain"><ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back</button>
-    <button (click)="nextPage()">Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right"></ircc-cl-lib-icon></button>
+    <button (click)="navButton()">Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right"></ircc-cl-lib-icon></button>
   </div>
 </div>
 
