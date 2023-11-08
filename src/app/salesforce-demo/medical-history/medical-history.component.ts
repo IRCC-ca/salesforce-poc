@@ -227,7 +227,7 @@ export class MedicalHistoryComponent implements OnInit {
       );
       this.medicalForm.addControl(
         this.inputConfig1.id,
-        new FormControl('', Validators.required)
+        new FormControl('')
       );
       this.medicalForm.addControl(
         this.radioConfig2.id,
