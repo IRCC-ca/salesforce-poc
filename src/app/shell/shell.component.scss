@@ -21,16 +21,17 @@ main {
     color: var(--text-secondary);
 }
 
-// ::ng-deep{ /*needs to be resolved in core - position fixed needs to be sticky*/
-//     .content{
-//         ircc-cl-lib-navigation{
-//             .lib-navigation.fixed {
-//                 position: sticky;
-//             }
-//          }   
-        
-//     }
-// }
+::ng-deep {
+
+    /*needs to be resolved in core - position fixed needs to be sticky*/
+    .content {
+        ircc-cl-lib-navigation {
+            .lib-navigation.fixed {
+                position: sticky;
+            }
+        }
+    }
+}
 
 
 .content {
