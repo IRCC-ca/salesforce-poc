@@ -15,8 +15,10 @@
     "generate": "ng generate",
     "translations:toJson": "node ./src/translations/ngx-translation-extract.js -r -i src/translations/SalesforceDemo.txt -l en-US,fr-FR -o src/translations",
     "translations:toText": "node src/translations/ngx-translation-extract.js -l en-US,fr-FR -i src/translations/ -o src/translations/SalesforceDemo.txt --clean ",
-    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/en-US.json ./src/translations/fr-FR.json --clean --sort --format namespaced-json --marker _"
+    "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/en-US.json ./src/translations/fr-FR.json --clean --sort --format namespaced-json --marker _",
+    "deploy-qa-to-s3": "node ./deploy-qa-to-s3.js"
   },
+  "type": "module",
   "dependencies": {
     "@angular/animations": "~14.2.5",
     "@angular/common": "~14.2.5",
@@ -41,7 +43,12 @@
     "ircc-ds-angular-component-library": "^1.1.7",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@angular/cli": "^14.2.11",
+    "@aws-sdk/client-s3": "^3.321.1",
+    "@aws-sdk/lib-storage": "^3.321.1",
+    "cheerio": "^1.0.0-rc.12",
+    "mime-types": "^2.1.35"
   },
   "devDependencies": {
     "@angular-builders/jest": "^14.0.1",

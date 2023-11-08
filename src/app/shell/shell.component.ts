@@ -128,7 +128,7 @@ export class ShellComponent implements OnInit {
     id: 'medicalLink',
     label: 'Medical history',
     type: 'link',
-    href: '',
+    href: 'en/' + 'medical-history',
     children: [],
     indicator: {status:'success', icon:'fa-regular fa-circle-check'}
   }
@@ -137,7 +137,7 @@ export class ShellComponent implements OnInit {
     id: 'criminalLink',
     label: 'Criminal history',
     type: 'link',
-    href: '',
+    href: 'en/' + 'personal-information',
     children: [],
     indicator: {status:'success', icon:'fa-regular fa-circle-check'}
   }
@@ -156,7 +156,7 @@ export class ShellComponent implements OnInit {
     height: '71vh',
     marginTop: 700,
     scrolling: true,
-    fixed: false,
+    fixed: true,
     navigationConfig: [
       this.purpose,
       this.reason,
