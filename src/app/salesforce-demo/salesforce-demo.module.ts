@@ -12,13 +12,16 @@ import { MedicalHistoryComponent } from './medical-history/medical-history.compo
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
 import { HomeComponent } from './home/home.component';
 import { SalesforceDemoComponent } from './salesforce-demo.component';
+import { HttpClientModule } from  '@angular/common/http';
+import { apiservice } from './apiservice.service';
+
 
 @NgModule({
   declarations: [
     SalesforceDemoComponent,
     MedicalHistoryComponent,
     PersonalInformationComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,8 @@ import { SalesforceDemoComponent } from './salesforce-demo.component';
     SalesforceDemoRoutingModule,
     SharedModule,
     IrccDsAngularHeaderFooterModule,
-    IrccDsAngularComponentsSharedModule
+    IrccDsAngularComponentsSharedModule,
+    HttpClientModule,
   ]
 })
 export class SalesforceDemoModule { }
