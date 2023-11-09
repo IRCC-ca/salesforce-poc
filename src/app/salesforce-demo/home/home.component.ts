@@ -96,6 +96,7 @@ export class HomeComponent implements OnInit {
             localStorage.removeItem('medical_id');
             setTimeout(() => {
               this.isLoading = false;
+              this.nextPage();
             }, 1000);
           }
         }, error => {
@@ -106,10 +107,7 @@ export class HomeComponent implements OnInit {
             this.form.get(this.inputPassword.id)?.setErrors({invalid: true});
           }, 1000);
           
-        }, () => { // onComplete callback
-          this.nextPage();
-        }
-        );
+        });
     } 
   }
 
