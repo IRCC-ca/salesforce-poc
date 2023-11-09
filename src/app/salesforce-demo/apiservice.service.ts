@@ -25,7 +25,7 @@ export class apiservice {
 
   postAuth(username: string, password:string): Observable<any> {
     let body = new HttpParams()
-      .set("grant_type", "client_credentials")
+      .set("grant_type", "password")
       .set(
         "client_id",
         "3MVG9Xl3BC6VHB.aWqB0wJK70.p8UFWsjSA3lQK4J9Z4CDu2eIkOuZiyjV_yS7eICJINpMy0T7FAKMaZUv4tC"
