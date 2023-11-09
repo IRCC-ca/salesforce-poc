@@ -27,14 +27,20 @@ export class HomeComponent implements OnInit {
     id: "inputUserName",
     formGroup: this.form,
     label: "User Name",
-    errorMessages: [{ key: "required", errorLOV: "Please enter a value" }],
+    errorMessages: [
+      { key: "required", errorLOV: "Please enter a value" },
+      { key: "invalid", errorLOV: "Invalid username or password" }
+    ],
   };
   inputPassword: IInputComponentConfig = {
     id: "inputPassword",
     formGroup: this.form,
     label: "Password",
     type: "password",
-    errorMessages: [{ key: "required", errorLOV: "Please enter a value" }],
+    errorMessages: [
+      { key: "required", errorLOV: "Please enter a value" },
+      { key: "invalid", errorLOV: "Invalid username or password" }
+    ],
   };
 
   constructor(
@@ -57,6 +63,13 @@ export class HomeComponent implements OnInit {
       this.inputPassword.id,
       new FormControl("", Validators.required)
     );
+
+    this.form.valueChanges.subscribe(() => {
+      this.form.get(this.inputUserName.id)?.setErrors(null);
+      this.form.get(this.inputPassword.id)?.setErrors(null);
+      // this.form.get(this.inputUserName.id)?.updateValueAndValidity();
+      // this.form.get(this.inputPassword.id)?.updateValueAndValidity();
+    });
   }
 
   submitForm() {
@@ -73,9 +86,15 @@ export class HomeComponent implements OnInit {
           if (data.access_token) {
             localStorage.setItem("access_token", data.access_token);
             localStorage.removeItem('medical_id');
-            this.nextPage();
           }
-        });
+        }, error => {
+          console.log("ERROR => ", error);
+          this.form.get(this.inputUserName.id)?.setErrors({invalid: true});
+          this.form.get(this.inputPassword.id)?.setErrors({invalid: true});
+        }, () => { // onComplete callback
+          this.nextPage();
+        }
+        );
     }
   }
 
