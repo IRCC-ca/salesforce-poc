@@ -7,15 +7,15 @@
 		"Login-alt": "connexion",
 		"PersonalInfo": "personal-information",
 		"WorkInfo": "work-information",
-		"MedicalHistory": "medical-history",
-		"MedicalHistory-alt": "histoire-medical",
+		"BackgroundInfo": "background-information",
+		"BackgroundInfo-alt": "background-information",
 		"WorkInfo-alt": "work-information",
 		"PersonalInfo-alt": "personal-information"
 	},
 	"Version": "Version",
 	"Home": {
 		"DateModified": "Date Modified",
-		"BeginTask": "Begin Task"
+		"BeginTask": "Submit"
 	},
 	"ERROR": {
 		"requiredRadioError": "This field is required"

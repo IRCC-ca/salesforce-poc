@@ -1,4 +1,4 @@
-# Design System Component Library - Accessibility Demo
+# Design System Component Library - Salesforce API Demo
 
 This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
 version 11.0.0

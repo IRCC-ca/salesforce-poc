@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     size: "large",
   };
   
-  isLoading = true;
+  isLoading = false;
   form = new FormGroup({});
   inputUserName: IInputComponentConfig = {
     id: "inputUserName",
@@ -102,9 +102,9 @@ export class HomeComponent implements OnInit {
           console.log("ERROR => ", error);
           setTimeout(() => {
             this.isLoading = false;
-          }, 3000);
-          this.form.get(this.inputUserName.id)?.setErrors({invalid: true});
-          this.form.get(this.inputPassword.id)?.setErrors({invalid: true});
+            this.form.get(this.inputUserName.id)?.setErrors({invalid: true});
+            this.form.get(this.inputPassword.id)?.setErrors({invalid: true});
+          }, 1000);
           
         }, () => { // onComplete callback
           this.nextPage();

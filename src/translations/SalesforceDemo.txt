@@ -7,7 +7,7 @@ ROUTES.Login-alt	connexion	login
 Version	Version	Version
 Home.DateModified	Date Modified	Date de modification
 ERROR.requiredRadioError	This field is required	Ce champ est obligatoire
-Home.BeginTask	Begin Task	Commencer la tâche
+Home.BeginTask	Submit	Soumettre
 AccessibilityDemo.Title	Accessibility Demo	Demo d'accessibilité
 Title.Home	Home	Acceuil
 Title.PersonalInfo	Personal Information	Informations-personnelles
@@ -26,7 +26,7 @@ ACC_DEMO.WORKINFO	Work information	Informations professionnelles
 ACC_DEMO.PREVIOUS_PAGE.CONTENT	This page is not part of the prototype. Please use the button below to return to the previous screen.	Cette page ne fait pas partie du prototype. Veuillez utiliser le bouton ci-dessous pour revenir à l'écran précédent.
 ACC_DEMO.NEXT_PAGE	This is an example of a next page - it is simply here for demonstration purposes and is not set up for correct accessibility. Note the update to the progress indicator at the top of the page. You can navigate using the progress indicator	Ceci est un exemple d'une page suivante - il est simplement là à des fins de démonstration et n'est pas configuré pour une accessibilité correcte. Notez la mise à jour de l'indicateur de progression en haut de la page. Vous pouvez naviguer en utilisant l'indicateur de progression
 ACC_DEMO.ERRORS.FAMILY_NAME_REQUIRED	This field is blank. Please enter a family name	Ce champ est vide. Veuillez saisir un nom de famille
-ACC_DEMO.ERRORS.DOB_NO_SELECTION_REQUIRED	No selection has been made. Please fill in the fields to complete your date of birth.	Aucune sélection n'a été faite. Veuillez remplir les champs pour compléter votre date de naissance.
+ACC_DEMO.ERRORS.DOB_NO_SELECTION_REQUIRED	No selection has been made. Please fill in the fields to complete your date of birth.	Aucune sélection n'a été faite. Veuillez remplir les champs pour terminer votre date de naissance.
 ACC_DEMO.ERRORS.DOB_REQUIRED	Please fill in the missing fields to complete your date of birth.	Veuillez remplir les champs manquants pour terminer votre date de naissance.
 ACC_DEMO.ERRORS.DECLARATION_REQUIRED	No selection has been made. Please make a selection to complete your declaration	Aucune sélection n'a été faite. Veuillez faire une sélection pour compléter votre déclaration
 ACC_DEMO.ERRORS.DECLARATION_CUSTOM	You must agree to continue	Vous devez accepter de continuer

@@ -15,7 +15,7 @@
 	"Version": "Version",
 	"Home": {
 		"DateModified": "Date de modification",
-		"BeginTask": "Commencer la tâche"
+		"BeginTask": "Soumettre"
 	},
 	"ERROR": {
 		"requiredRadioError": "Ce champ est obligatoire"
@@ -40,7 +40,7 @@
 		"NEXT_PAGE": "Ceci est un exemple d'une page suivante - il est simplement là à des fins de démonstration et n'est pas configuré pour une accessibilité correcte. Notez la mise à jour de l'indicateur de progression en haut de la page. Vous pouvez naviguer en utilisant l'indicateur de progression",
 		"ERRORS": {
 			"FAMILY_NAME_REQUIRED": "Ce champ est vide. Veuillez saisir un nom de famille",
-			"DOB_NO_SELECTION_REQUIRED": "Aucune sélection n'a été faite. Veuillez remplir les champs pour compléter votre date de naissance.",
+			"DOB_NO_SELECTION_REQUIRED": "Aucune sélection n'a été faite. Veuillez remplir les champs pour terminer votre date de naissance.",
 			"DOB_REQUIRED": "Veuillez remplir les champs manquants pour terminer votre date de naissance.",
 			"DECLARATION_REQUIRED": "Aucune sélection n'a été faite. Veuillez faire une sélection pour compléter votre déclaration",
 			"DECLARATION_CUSTOM": "Vous devez accepter de continuer"
