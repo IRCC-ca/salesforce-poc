@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import {
+  IBannerConfig,
   IButtonConfig,
-  IInputComponentConfig,
+  IInputComponentConfig
 } from "ircc-ds-angular-component-library";
 import { Router } from "@angular/router";
 import { LanguageSwitchService } from "@app/@shared/language-switch/language-switch.service";
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
     id: "continue-btn",
     size: "large",
   };
-
+  
+  isLoading = true;
   form = new FormGroup({});
   inputUserName: IInputComponentConfig = {
     id: "inputUserName",
@@ -41,6 +43,14 @@ export class HomeComponent implements OnInit {
       { key: "required", errorLOV: "Please enter a value" },
       { key: "invalid", errorLOV: "Invalid username or password" }
     ],
+  };
+
+  errorBannerConfig: IBannerConfig = {
+    id: "error_banner",
+    type: "critical",
+    title: "ACC_DEMO.PERSONAL_INFO.ERROR_BANNER.TITLE",
+    content: "ACC_DEMO.PERSONAL_INFO.ERROR_BANNER.CONTENT",
+    rounded: true,
   };
 
   constructor(
@@ -67,14 +77,12 @@ export class HomeComponent implements OnInit {
     this.form.valueChanges.subscribe(() => {
       this.form.get(this.inputUserName.id)?.setErrors(null);
       this.form.get(this.inputPassword.id)?.setErrors(null);
-      // this.form.get(this.inputUserName.id)?.updateValueAndValidity();
-      // this.form.get(this.inputPassword.id)?.updateValueAndValidity();
     });
   }
 
   submitForm() {
     this.form.markAllAsTouched();
-
+    this.isLoading = true;
     if (this.form.valid) {
       this.apiservice
         .postAuth(
@@ -86,16 +94,23 @@ export class HomeComponent implements OnInit {
           if (data.access_token) {
             localStorage.setItem("access_token", data.access_token);
             localStorage.removeItem('medical_id');
+            setTimeout(() => {
+              this.isLoading = false;
+            }, 3000);
           }
         }, error => {
           console.log("ERROR => ", error);
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 3000);
           this.form.get(this.inputUserName.id)?.setErrors({invalid: true});
           this.form.get(this.inputPassword.id)?.setErrors({invalid: true});
+          
         }, () => { // onComplete callback
           this.nextPage();
         }
         );
-    }
+    } 
   }
 
   nextPage() {

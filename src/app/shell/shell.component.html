@@ -2,7 +2,9 @@
   <ircc-cl-lib-header [id]="'header'"></ircc-cl-lib-header>
   <main>
     <div class="save-button-container">
-      <button category="plain"><ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Save and exit</button>
+      <button class="save-btn" category="plain">
+        <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Save and exit
+      </button>
       <p class="secondary-text">Last saved 5 mins ago</p>
     </div>
 
@@ -11,14 +13,16 @@
       <ircc-cl-lib-progress-indicator [config]="progConfig"></ircc-cl-lib-progress-indicator>
     </div>
     <div class="content">
-      <div class="page-content"><router-outlet></router-outlet></div>
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
       <ircc-cl-lib-navigation></ircc-cl-lib-navigation>
     </div>
-        <div class="date-modified-container">
-          <p class="date-modified">
-            {{ 'Home.DateModified' | translate }}: {{ dateModified }}
-          </p>
-        </div>  
+    <div class="date-modified-container">
+      <p class="date-modified">
+        {{ 'Home.DateModified' | translate }}: {{ dateModified }}
+      </p>
+    </div>
   </main>
-    <ircc-cl-lib-footer></ircc-cl-lib-footer>
-  </div>
+  <ircc-cl-lib-footer></ircc-cl-lib-footer>
+</div>

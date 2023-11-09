@@ -1,8 +1,18 @@
 <div class="home-container">
   <h1>Login into Salesforce</h1>
-
-  <ircc-cl-lib-input [config]="inputUserName"></ircc-cl-lib-input>
-  <ircc-cl-lib-input [config]="inputPassword"></ircc-cl-lib-input>
-  <ircc-cl-lib-button [config]="continueButtonConfig" (click)="submitForm()">{{ 'Home.BeginTask' | translate }}</ircc-cl-lib-button>
+  <!-- <ng-container *ngIf="!isLoading"> -->
+    <ircc-cl-lib-input [config]="inputUserName"></ircc-cl-lib-input>
+    <ircc-cl-lib-input [config]="inputPassword"></ircc-cl-lib-input>
+    <ircc-cl-lib-button class="begin-task" [config]="continueButtonConfig" (click)="submitForm()">
+      <ng-container *ngIf="isLoading">
+        <!-- <div class="loader-container"> -->
+          <span class="loader"></span>
+        <!-- </div> -->
+      </ng-container>
+      <ng-container *ngIf="!isLoading">
+        {{ 'Home.BeginTask' | translate }}
+      </ng-container>
+    </ircc-cl-lib-button>
+  <!-- </ng-container> -->
 </div>
 
