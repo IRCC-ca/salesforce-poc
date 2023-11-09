@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
             localStorage.removeItem('medical_id');
             setTimeout(() => {
               this.isLoading = false;
-            }, 3000);
+            }, 1000);
           }
         }, error => {
           console.log("ERROR => ", error);

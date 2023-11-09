@@ -15,7 +15,7 @@ Title.WorkInfo	Work Information	Information-de-travail
 Title.BackgroundInfo	Background Information	Informations-preliminaires
 ROUTES.PersonalInfo	personal-information	informations-personnelles
 ROUTES.WorkInfo	work-information	information-de-travail
-ROUTES.BackgroundInfo	background-information	informations-preliminaires
+ROUTES.MedicalHistory	medical-history	antécédents-médicaux
 ROUTES.BackgroundInfo-alt	background-information	informations-preliminaires
 ROUTES.WorkInfo-alt	work-information	information-de-travail
 ROUTES.PersonalInfo-alt	personal-information	informations-personnelles
