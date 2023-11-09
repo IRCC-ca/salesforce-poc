@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
           console.log(data);
           if (data.access_token) {
             localStorage.setItem("access_token", data.access_token);
+            localStorage.removeItem('medical_id');
             this.nextPage();
           }
         });

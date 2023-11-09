@@ -24,7 +24,7 @@ import { apiservice } from "../apiservice.service";
 import { HttpHeaders } from "@angular/common/http";
 
 
-const CREATE_ACCOUNTS = gql`mutation AccountMedical(
+const CREATE_ACCOUNT = gql`mutation AccountMedical(
   $poc_exam__c: Boolean!
   $poc_ime__c : String!
   $poc_dialysis__c : Boolean!
@@ -88,6 +88,51 @@ const CREATE_ACCOUNTS = gql`mutation AccountMedical(
   }
 }
 `
+const GET_ACCOUNT = gql `
+query accountById($id: ID) {
+  uiapi {
+    query {
+      Account(where: { Id: { eq: $id } }) {
+        edges {
+          node {
+            Id
+            Name {
+              value
+            }
+            poc_exam__c {
+                value
+            }
+            poc_ime__c {
+                value
+            }
+            poc_dialysis__c {
+                value
+            } 
+            poc_addiction__c {
+                value
+            }
+            poc_hospitalized__c {
+                value
+            }
+            poc_syphilis__c {
+                value
+            }
+            poc_syphilis_treated__c {
+                value
+            }
+            poc_tb_two__c {
+                value
+            }
+            poc_tb_five__c {
+                value
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
 
 @Component({
   selector: "app-medical-history",
@@ -123,8 +168,8 @@ export class MedicalHistoryComponent implements OnInit {
 
   medicalForm = new FormGroup({});
 
-  radioConfig1: IRadioInputComponentConfig = {
-    id: "radio_1",
+  poc_exam__c_config: IRadioInputComponentConfig = {
+    id: "poc_exam__c",
     formGroup: this.medicalForm,
     required: true,
     label:
@@ -140,8 +185,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig2: IRadioInputComponentConfig = {
-    id: "radio_2",
+  poc_dialysis__c_config: IRadioInputComponentConfig = {
+    id: "poc_dialysis__c",
     formGroup: this.medicalForm,
     required: true,
     label: "Are you currently receiving dialysis treatment?",
@@ -156,8 +201,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig3: IRadioInputComponentConfig = {
-    id: "radio_3",
+  poc_addiction__c_config: IRadioInputComponentConfig = {
+    id: "poc_addiction__c",
     formGroup: this.medicalForm,
     required: true,
     label:
@@ -173,8 +218,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig4: IRadioInputComponentConfig = {
-    id: "radio_4",
+  poc_hospitalized__c_config: IRadioInputComponentConfig = {
+    id: "poc_hospitalized__c",
     formGroup: this.medicalForm,
     required: true,
     label:
@@ -190,8 +235,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig5: IRadioInputComponentConfig = {
-    id: "radio_5",
+  poc_syphilis__c_config: IRadioInputComponentConfig = {
+    id: "poc_syphilis__c",
     formGroup: this.medicalForm,
     required: true,
     label: "Have you ever been diagnosed with syphilis?",
@@ -206,8 +251,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig6: IRadioInputComponentConfig = {
-    id: "radio_6",
+  poc_syphilis_treated__c_config: IRadioInputComponentConfig = {
+    id: "poc_syphilis_treated__c",
     formGroup: this.medicalForm,
     required: true,
     label: "Have you been treated for syphilis?",
@@ -222,8 +267,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig7: IRadioInputComponentConfig = {
-    id: "radio_7",
+  poc_tb_two__c_config: IRadioInputComponentConfig = {
+    id: "poc_tb_two__c",
     formGroup: this.medicalForm,
     required: true,
     label: "In the last 2 years, were you diagnosed with tuberculosis?",
@@ -238,8 +283,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  radioConfig8: IRadioInputComponentConfig = {
-    id: "radio_8",
+  poc_tb_five__c_config: IRadioInputComponentConfig = {
+    id: "poc_tb_five__c",
     formGroup: this.medicalForm,
     required: true,
     label:
@@ -255,8 +300,8 @@ export class MedicalHistoryComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  inputConfig1: IInputComponentConfig = {
-    id: "input_1",
+  poc_ime__c_config: IInputComponentConfig = {
+    id: "poc_ime__c",
     formGroup: this.medicalForm,
     label:
       "If known, please provide your Immigraiton medical examination (IME) or Unique medical identifier (UMI) number. (optional)",
@@ -306,45 +351,78 @@ export class MedicalHistoryComponent implements OnInit {
       });
 
     this.medicalForm.addControl(
-      this.radioConfig1.id,
+      this.poc_exam__c_config.id,
       new FormControl("", Validators.required)
     );
-    this.medicalForm.addControl(this.inputConfig1.id, new FormControl(""));
+    this.medicalForm.addControl(this.poc_ime__c_config.id, new FormControl(""));
     this.medicalForm.addControl(
-      this.radioConfig2.id,
-      new FormControl("", Validators.required)
-    );
-    this.medicalForm.addControl(
-      this.radioConfig3.id,
+      this.poc_dialysis__c_config.id,
       new FormControl("", Validators.required)
     );
     this.medicalForm.addControl(
-      this.radioConfig4.id,
+      this.poc_addiction__c_config.id,
       new FormControl("", Validators.required)
     );
     this.medicalForm.addControl(
-      this.radioConfig5.id,
+      this.poc_hospitalized__c_config.id,
       new FormControl("", Validators.required)
     );
     this.medicalForm.addControl(
-      this.radioConfig6.id,
+      this.poc_syphilis__c_config.id,
       new FormControl("", Validators.required)
     );
     this.medicalForm.addControl(
-      this.radioConfig7.id,
+      this.poc_syphilis_treated__c_config.id,
       new FormControl("", Validators.required)
     );
     this.medicalForm.addControl(
-      this.radioConfig8.id,
+      this.poc_tb_two__c_config.id,
+      new FormControl("", Validators.required)
+    );
+    this.medicalForm.addControl(
+      this.poc_tb_five__c_config.id,
       new FormControl("", Validators.required)
     );
 
     this.medicalForm.valueChanges.subscribe((change) => {
       console.log(change);
     });
+
+    let id = localStorage.getItem('medical_id');
+    if (id) {
+      this.apollo.watchQuery({
+        query: GET_ACCOUNT,
+        variables: {
+          id: id
+        },
+        context: {
+          headers: new HttpHeaders().set(
+            "Authorization",
+            "Bearer " + localStorage.getItem("access_token")
+          ),
+        }
+      }).valueChanges.subscribe(
+        (data: any) => {
+          console.log('got data =>', data);
+
+          let formData = data.data.uiapi.query.Account.edges[0].node;
+          this.medicalForm.get(this.poc_exam__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_exam__c.value));
+          this.medicalForm.get(this.poc_ime__c_config.id)?.setValue(formData.poc_ime__c.value);
+          this.medicalForm.get(this.poc_dialysis__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_dialysis__c.value));
+          this.medicalForm.get(this.poc_addiction__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_addiction__c.value));
+          this.medicalForm.get(this.poc_hospitalized__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_hospitalized__c.value));
+          this.medicalForm.get(this.poc_syphilis__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_syphilis__c.value));
+          this.medicalForm.get(this.poc_syphilis_treated__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_syphilis_treated__c.value));
+          this.medicalForm.get(this.poc_tb_two__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_tb_two__c.value));
+          this.medicalForm.get(this.poc_tb_five__c_config.id)?.setValue(this.convertBoolToStr(formData.poc_tb_five__c.value));
+        }
+      )
+    }
   }
 
-
+  convertBoolToStr(value: string | boolean){
+    return value === true ? "Yes" : "No";
+  }
 
   /**
    * Update the progress indicator status (unlock/lock the next element)
@@ -368,7 +446,7 @@ export class MedicalHistoryComponent implements OnInit {
     }
   }
 
-  convertBool(value: string | boolean){
+  convertStrToBool(value: string | boolean){
     return value === 'Yes' ? true : false;
   }
 
@@ -381,17 +459,17 @@ export class MedicalHistoryComponent implements OnInit {
     console.log(this.medicalForm);
     this.apollo
       .mutate({
-        mutation: CREATE_ACCOUNTS,
+        mutation: CREATE_ACCOUNT,
         variables: {
-          poc_exam__c: this.convertBool(this.medicalForm.get(this.radioConfig1.id)?.value),
-          poc_ime__c : this.medicalForm.get(this.inputConfig1.id)?.value,
-          poc_dialysis__c : this.convertBool(this.medicalForm.get(this.radioConfig2.id)?.value),
-          poc_addiction__c : this.convertBool(this.medicalForm.get(this.radioConfig3.id)?.value),
-          poc_hospitalized__c : this.convertBool(this.medicalForm.get(this.radioConfig4.id)?.value),
-          poc_syphilis__c : this.convertBool(this.medicalForm.get(this.radioConfig5.id)?.value),
-          poc_syphilis_treated__c : this.convertBool(this.medicalForm.get(this.radioConfig6.id)?.value),
-          poc_tb_two__c : this.convertBool(this.medicalForm.get(this.radioConfig7.id)?.value),
-          poc_tb_five__c : this.convertBool(this.medicalForm.get(this.radioConfig8.id)?.value)
+          poc_exam__c: this.convertStrToBool(this.medicalForm.get(this.poc_exam__c_config.id)?.value),
+          poc_ime__c : this.medicalForm.get(this.poc_ime__c_config.id)?.value,
+          poc_dialysis__c : this.convertStrToBool(this.medicalForm.get(this.poc_dialysis__c_config.id)?.value),
+          poc_addiction__c : this.convertStrToBool(this.medicalForm.get(this.poc_addiction__c_config.id)?.value),
+          poc_hospitalized__c : this.convertStrToBool(this.medicalForm.get(this.poc_hospitalized__c_config.id)?.value),
+          poc_syphilis__c : this.convertStrToBool(this.medicalForm.get(this.poc_syphilis__c_config.id)?.value),
+          poc_syphilis_treated__c : this.convertStrToBool(this.medicalForm.get(this.poc_syphilis_treated__c_config.id)?.value),
+          poc_tb_two__c : this.convertStrToBool(this.medicalForm.get(this.poc_tb_two__c_config.id)?.value),
+          poc_tb_five__c : this.convertStrToBool(this.medicalForm.get(this.poc_tb_five__c_config.id)?.value)
         },
         context: {
           headers: new HttpHeaders().set(
@@ -400,8 +478,11 @@ export class MedicalHistoryComponent implements OnInit {
           ),
         },
       }).subscribe(
-        ({ data }) => {
-          console.log('got data', data);
+         (data: any)  => {
+          console.log('got data - from subscribe: ', data);
+          if (data) {
+            localStorage.setItem('medical_id', data.data.uiapi.AccountCreate.Record.Id)
+          }
           this.nextPage();
         },
         error => {

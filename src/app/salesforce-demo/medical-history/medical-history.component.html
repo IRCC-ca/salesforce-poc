@@ -4,18 +4,18 @@
   </div>
   <h1>Medical History</h1>
   <p class="secondary-text">Provide some information about your medical history over the past five years.</p>
-  <ircc-cl-lib-radio-input [config]="radioConfig1"></ircc-cl-lib-radio-input>
-  <ircc-cl-lib-input [config]="inputConfig1" *ngIf="medicalForm.value['radio_1'] == 'Yes'"></ircc-cl-lib-input>
-  <ircc-cl-lib-radio-input [config]="radioConfig2"></ircc-cl-lib-radio-input>
-  <ircc-cl-lib-radio-input [config]="radioConfig3"></ircc-cl-lib-radio-input>
-  <ircc-cl-lib-radio-input [config]="radioConfig4"></ircc-cl-lib-radio-input>
-  <ircc-cl-lib-radio-input [config]="radioConfig5"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_exam__c_config"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-input [config]="poc_ime__c_config" *ngIf="medicalForm.value['poc_exam__c'] == 'Yes'"></ircc-cl-lib-input>
+  <ircc-cl-lib-radio-input [config]="poc_dialysis__c_config"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_addiction__c_config"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_hospitalized__c_config"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_syphilis__c_config"></ircc-cl-lib-radio-input>
   <ul class="trailing-text">
     <li>Syphilis is a disease caused by bacteria and may also be known as lues, syph or pox.</li>
     <li>If you have a history of syphilis, it doesn't mean that you can't come to Canada. Once you complete your
       treatment, you can come to Canada.</li>
   </ul>
-  <ircc-cl-lib-radio-input [config]="radioConfig6"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_syphilis_treated__c_config"></ircc-cl-lib-radio-input>
   <p class="trailing-text">Syphilis is treated with medication that is given as pills for 28 days or as 3 needles. The
     medications are called penicillin or doxycycline.</p>
   <h2>Tuberculosis</h2>
@@ -25,8 +25,8 @@
     <li>If you have a history of tuberculosis, it doesn't mean that you can't come to Canada. Once you complete your
       treatment, you can come to Canada.</li>
   </ul>
-  <ircc-cl-lib-radio-input [config]="radioConfig7"></ircc-cl-lib-radio-input>
-  <ircc-cl-lib-radio-input [config]="radioConfig8"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_tb_two__c_config"></ircc-cl-lib-radio-input>
+  <ircc-cl-lib-radio-input [config]="poc_tb_five__c_config"></ircc-cl-lib-radio-input>
   <div class="nav-button-container">
     <button (click)="previousPage()" category="plain">
       <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back
