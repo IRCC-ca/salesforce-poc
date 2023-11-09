@@ -1,6 +1,23 @@
 @use "../salesforce-demo.component.scss";
 @use '../../../../node_modules/@ircc-ca/ds-sdc-core/util/device';
+::ng-deep {
 
+  #right_nav,
+  .save-button-container button,
+  .progress-container,
+  .secondary-text {
+    display: block;
+  }
+
+  .save-btn {
+    display: block;
+  }
+
+  // .content {
+  //   gap: 0;
+  //   justify-content: center;
+  // }
+}
 .mh-container {
   display: flex;
   flex-direction: column;

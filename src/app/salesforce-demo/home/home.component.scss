@@ -1,12 +1,12 @@
 ::ng-deep {
   #right_nav,
-  .save-button-container,
+  .save-button-container button,
   .progress-container,
   .secondary-text {
-    display: none !important;
+    display: none;
   }
   .save-btn {
-    display: none !important;
+    display: none;
   }
 
   .content {
