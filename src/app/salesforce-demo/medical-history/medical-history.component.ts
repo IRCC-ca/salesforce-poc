@@ -457,39 +457,6 @@ export class MedicalHistoryComponent implements OnInit {
     this.medicalForm.markAllAsTouched();
     this.updateProgressIndicator();
     console.log(this.medicalForm);
-    this.apollo
-      .mutate({
-        mutation: CREATE_ACCOUNT,
-        variables: {
-          poc_exam__c: this.convertStrToBool(this.medicalForm.get(this.poc_exam__c_config.id)?.value),
-          poc_ime__c : this.medicalForm.get(this.poc_ime__c_config.id)?.value,
-          poc_dialysis__c : this.convertStrToBool(this.medicalForm.get(this.poc_dialysis__c_config.id)?.value),
-          poc_addiction__c : this.convertStrToBool(this.medicalForm.get(this.poc_addiction__c_config.id)?.value),
-          poc_hospitalized__c : this.convertStrToBool(this.medicalForm.get(this.poc_hospitalized__c_config.id)?.value),
-          poc_syphilis__c : this.convertStrToBool(this.medicalForm.get(this.poc_syphilis__c_config.id)?.value),
-          poc_syphilis_treated__c : this.convertStrToBool(this.medicalForm.get(this.poc_syphilis_treated__c_config.id)?.value),
-          poc_tb_two__c : this.convertStrToBool(this.medicalForm.get(this.poc_tb_two__c_config.id)?.value),
-          poc_tb_five__c : this.convertStrToBool(this.medicalForm.get(this.poc_tb_five__c_config.id)?.value)
-        },
-        context: {
-          headers: new HttpHeaders().set(
-            "Authorization",
-            "Bearer " + localStorage.getItem("access_token")
-          ),
-        },
-      }).subscribe(
-         (data: any)  => {
-          console.log('got data - from subscribe: ', data);
-          if (data) {
-            localStorage.setItem('medical_id', data.data.uiapi.AccountCreate.Record.Id)
-          }
-          this.nextPage();
-        },
-        error => {
-          console.log('there was an error sending the query', error);
-        },
-      );
-
       if (!this.medicalForm.valid) {
         this.showErrorBanner = true;
         this.medicalForm.valueChanges.subscribe(() => {
@@ -503,6 +470,38 @@ export class MedicalHistoryComponent implements OnInit {
           });
         });
       } else {
+          this.apollo
+          .mutate({
+            mutation: CREATE_ACCOUNT,
+            variables: {
+              poc_exam__c: this.convertStrToBool(this.medicalForm.get(this.poc_exam__c_config.id)?.value),
+              poc_ime__c : this.medicalForm.get(this.poc_ime__c_config.id)?.value,
+              poc_dialysis__c : this.convertStrToBool(this.medicalForm.get(this.poc_dialysis__c_config.id)?.value),
+              poc_addiction__c : this.convertStrToBool(this.medicalForm.get(this.poc_addiction__c_config.id)?.value),
+              poc_hospitalized__c : this.convertStrToBool(this.medicalForm.get(this.poc_hospitalized__c_config.id)?.value),
+              poc_syphilis__c : this.convertStrToBool(this.medicalForm.get(this.poc_syphilis__c_config.id)?.value),
+              poc_syphilis_treated__c : this.convertStrToBool(this.medicalForm.get(this.poc_syphilis_treated__c_config.id)?.value),
+              poc_tb_two__c : this.convertStrToBool(this.medicalForm.get(this.poc_tb_two__c_config.id)?.value),
+              poc_tb_five__c : this.convertStrToBool(this.medicalForm.get(this.poc_tb_five__c_config.id)?.value)
+            },
+            context: {
+              headers: new HttpHeaders().set(
+                "Authorization",
+                "Bearer " + localStorage.getItem("access_token")
+              ),
+            },
+          }).subscribe(
+            (data: any)  => {
+              console.log('got data - from subscribe: ', data);
+              if (data) {
+                localStorage.setItem('medical_id', data.data.uiapi.AccountCreate.Record.Id)
+              }
+            },
+            error => {
+              console.log('there was an error sending the query', error);
+            },
+          );
+        this.nextPage();
         const tempConfig = this.progressIndicatorConfig;
         if (tempConfig.steps) {
           tempConfig.steps[1].tagConfig.type = "success";
@@ -527,6 +526,7 @@ export class MedicalHistoryComponent implements OnInit {
    */
   previousPage() {
     this.formService.navigationHandler("prev");
+    localStorage.clear();
   }
 
   /**
