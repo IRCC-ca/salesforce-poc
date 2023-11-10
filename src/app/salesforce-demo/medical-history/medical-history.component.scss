@@ -1,14 +1,6 @@
 @use "../salesforce-demo.component.scss";
 @use '../../../../node_modules/@ircc-ca/ds-sdc-core/util/device';
 ::ng-deep {
-
-  #right_nav,
-  .save-button-container button,
-  .progress-container,
-  .secondary-text {
-    display: block;
-  }
-
 .main-container main {
   div.save-button-container {
     .save-btn {

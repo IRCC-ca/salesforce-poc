@@ -2,22 +2,16 @@
 <div
   class="page_container"
 >
-  <nav
-    role="navigation"
-    class="outer_header_stepper_container"
-    id="outer_header_stepper_container"
-  >
-    <div
-      class="header_stepper_container"
-      id="header_stepper_inner_container"
-    >
-      <div
-        class="stepper"
-        
-      >
-      </div>
+      <div class="save-button-container">
+      <button class="save-btn" category="plain">
+        <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Save and exit
+      </button>
+      <p class="secondary-text">Last saved 5 mins ago</p>
     </div>
-  </nav>
+    <h1 class="h5 secondary-text emphasis">Visitor visa application</h1>
+    <div class="progress-container">
+      <ircc-cl-lib-progress-indicator [config]="progConfig"></ircc-cl-lib-progress-indicator>
+    </div>
   <div
     id="ds-cont"
     aria-live="polite"
@@ -119,6 +113,7 @@
         </div>
       </div>
     </div>
+    <ircc-cl-lib-navigation></ircc-cl-lib-navigation>
   </div>
 </div>
 

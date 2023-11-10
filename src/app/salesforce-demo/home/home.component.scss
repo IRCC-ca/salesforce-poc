@@ -1,20 +1,3 @@
-::ng-deep {
-  #right_nav,
-  .save-button-container button,
-  .progress-container,
-  .secondary-text {
-    display: none;
-  }
-  .save-btn {
-    display: none;
-  }
-
-  .content {
-    gap: 0;
-    justify-content: center;
-  }
-}
-
 .home-container {
   display: flex;
   padding: 200px 164px;
