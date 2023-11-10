@@ -2,8 +2,10 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Inject,
   OnInit,
   ViewChild,
+  PLATFORM_ID
 } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
 import { LanguageSwitchService } from "@app/@shared/language-switch/language-switch.service";
@@ -14,6 +16,10 @@ import {
   IRadioInputComponentConfig,
   IInputComponentConfig,
   IBannerConfig,
+  INavigationConfig,
+  INavigationItemHeading,
+  INavigationItemLink,
+  NavigationService,
 } from "ircc-ds-angular-component-library";
 import { Subscription } from "rxjs";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
@@ -156,6 +162,158 @@ export class MedicalHistoryComponent implements OnInit {
         href: "ds-cont",
       },
     ],
+  };
+
+    progConfig : IProgressIndicatorConfig = {
+    id: 'prog_indicator',
+    steps: [
+      {title: 'Fill in application', tagConfig: {
+      id: 'progress_indicator_step1',
+      type: 'primary'
+      }},
+      {title: 'Review application', tagConfig: {
+        id: 'progress_indicator_step1',
+        type: 'locked'
+        }},
+        {title: 'Pay fees', tagConfig: {
+          id: 'progress_indicator_step1',
+          type: 'locked'
+          }},
+          {title: 'Sign and submit', tagConfig: {
+            id: 'progress_indicator_step1',
+            type: 'locked'
+            }},
+    
+    ]
+  }
+
+  reason: INavigationItemLink = {
+    id: 'reasonLink',
+    label: 'Reason for visit',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  };
+
+  purpose: INavigationItemHeading = {
+    id: 'purposeNavTitle',
+    label: 'Purpose',
+    type: 'heading',
+    iconLeading: '',
+    children: []
+  };
+
+  personal: INavigationItemLink = {
+    id: 'personalLink',
+    label: 'Personal details',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  residence: INavigationItemLink = {
+    id: 'residenceLink',
+    label: 'Residence history',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  identification: INavigationItemLink = {
+    id: 'identificationLink',
+    label: 'Identification',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  work: INavigationItemLink = {
+    id: 'workLink',
+    label: 'Work and school',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  travel: INavigationItemLink = {
+    id: 'travelLink',
+    label: 'Travel information',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  finance: INavigationItemLink = {
+    id: 'financeLink',
+    label: 'Financial details',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  family: INavigationItemLink = {
+    id: 'familyLink',
+    label: 'Family details',
+    type: 'link',
+    href: '',
+    children: [],
+    indicator: {status:'success', icon:'fa-regular fa-circle-check'}
+  }
+
+  medical: INavigationItemLink = {
+    id: 'medicalLink',
+    label: 'Medical history',
+    type: 'link',
+    href: 'en/' + 'medical-history',
+    children: [],
+    indicator: {status:'primary', icon:'fa-regular fa-circle-half-stroke'}
+  }
+
+  criminal: INavigationItemLink = {
+    id: 'criminalLink',
+    label: 'Criminal history',
+    type: 'link',
+    href: 'en/' + 'personal-information',
+    children: [],
+    indicator: {status:'neutral', icon:'fa-regular fa-circle'}
+  }
+
+  client: INavigationItemHeading = {
+    id: 'clientNavTitle',
+    label: 'Client details',
+    type: 'heading',
+    iconLeading: '',
+    children: []
+  }
+
+  rightNavConfig: INavigationConfig = {
+    id: 'right_nav',
+    size: 'small',
+    height: '71vh',
+    marginTop: 700,
+    scrolling: true,
+    fixed: true,
+    navigationConfig: [
+      this.purpose,
+      this.reason,
+      this.client,
+      this.personal, 
+      this.residence, 
+      this.identification, 
+      this.work, 
+      this.travel, 
+      this.finance, 
+      this.family, 
+      this.medical, 
+      this.criminal
+    ]
   };
 
   errorBannerConfig: IBannerConfig = {
@@ -318,8 +476,10 @@ export class MedicalHistoryComponent implements OnInit {
     private formService: SalesforceDemoFormStateService,
     private translate: TranslateService,
     private altLang: LanguageSwitchService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private apiservice: apiservice,
-    private apollo: Apollo
+    private apollo: Apollo,
+    private navService: NavigationService
   ) {}
 
   @HostListener("window:resize", ["$event"])
@@ -329,6 +489,8 @@ export class MedicalHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.navService.setNavConfig(this.rightNavConfig);
+
     //Set orientation of the progress bar and get initial window width
     this.innerWidth = window.innerWidth;
     this.updateProgressBarOrientation();

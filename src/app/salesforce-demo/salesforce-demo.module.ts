@@ -5,7 +5,8 @@ import { SharedModule } from '../@shared';
 
 import {
   IrccDsAngularComponentsSharedModule,
-  IrccDsAngularHeaderFooterModule
+  IrccDsAngularHeaderFooterModule,
+  IrccDsAngularNavigationModule
 } from 'ircc-ds-angular-component-library';
 import { TranslateModule } from '@ngx-translate/core';
 import { MedicalHistoryComponent } from './medical-history/medical-history.component';
@@ -31,6 +32,7 @@ import { apiservice } from './apiservice.service';
     IrccDsAngularHeaderFooterModule,
     IrccDsAngularComponentsSharedModule,
     HttpClientModule,
+    IrccDsAngularNavigationModule
   ]
 })
 export class SalesforceDemoModule { }

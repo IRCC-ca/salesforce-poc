@@ -9,14 +9,31 @@
     display: block;
   }
 
-  .save-btn {
-    display: block;
+.main-container main {
+  div.save-button-container {
+    .save-btn {
+      display: flex;
+    }
   }
+}
 
-  // .content {
-  //   gap: 0;
-  //   justify-content: center;
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+ircc-cl-lib-navigation {
+  #right_nav {
+    min-width: 225px;
+  }
+    .lib-navigation.fixed {
+      position: sticky;
+    }
+  }
+  // .page-content {
+  //   flex-basis: 90%;
   // }
+
+}
 }
 .mh-container {
   display: flex;
