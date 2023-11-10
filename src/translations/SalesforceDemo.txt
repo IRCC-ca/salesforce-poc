@@ -13,7 +13,7 @@ Title.Home	Home	Acceuil
 Title.PersonalInfo	Personal Information	Informations-personnelles
 Title.WorkInfo	Work Information	Information-de-travail
 Title.BackgroundInfo	Background Information	Informations-preliminaires
-ROUTES.PersonalInfo	personal-information	informations-personnelles
+ROUTES.CriminalHistory	criminal-history	historique
 ROUTES.WorkInfo	work-information	information-de-travail
 ROUTES.MedicalHistory	medical-history	antécédents-médicaux
 ROUTES.BackgroundInfo-alt	background-information	informations-preliminaires
@@ -36,7 +36,7 @@ ACC_DEMO.PERSONAL_INFO.ERROR_BANNER.TITLE	Missing information	Information manqua
 ACC_DEMO.PERSONAL_INFO.ERROR_BANNER.CONTENT	There are unresolved errors below.	Il y a des erreurs non résolues ci-dessous.
 ACC_DEMO.PERSONAL_INFO.H1	Personal information	Informations personnelles
 ACC_DEMO.PERSONAL_INFO.BODY	Enter the correct information in the spaces below as it appears in your passport, travel or identity documents.	Entrez les informations correctes dans les espaces ci-dessous tels qu'il apparaît dans vos documents de passeport, de voyage ou d'identité.
-ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.LABEL	Family name (required)	Nom de famille (obligatoire)
+ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.LABEL	Family name (required)	Nom de famille (requis)
 ACC_DEMO.MORE_INFO	more information	Plus d'information
 ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.DESC	This is your surname or last name	Ceci est votre nom de famille ou votre nom
 ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.BANNER	If you do not have a family name, provide all your given names in the family name field and leave the given names field blank.	Si vous n'avez pas de nom de famille, fournissez tous vos noms donnés dans le champ de nom de famille et laissez le champ des noms donnés vide.

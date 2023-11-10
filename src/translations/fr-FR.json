@@ -5,7 +5,7 @@
 		"Home-alt": "home",
 		"Login": "connexion",
 		"Login-alt": "login",
-		"PersonalInfo": "informations-personnelles",
+		"CriminalHistory": "historique",
 		"WorkInfo": "information-de-travail",
 		"MedicalHistory": "antécédents-médicaux",
 		"BackgroundInfo-alt": "informations-preliminaires",
@@ -57,7 +57,7 @@
 			"H1": "Informations personnelles",
 			"BODY": "Entrez les informations correctes dans les espaces ci-dessous tels qu'il apparaît dans vos documents de passeport, de voyage ou d'identité.",
 			"FAMILY_NAME_INPUT": {
-				"LABEL": "Nom de famille (obligatoire)",
+				"LABEL": "Nom de famille (requis)",
 				"DESC": "Ceci est votre nom de famille ou votre nom",
 				"BANNER": "Si vous n'avez pas de nom de famille, fournissez tous vos noms donnés dans le champ de nom de famille et laissez le champ des noms donnés vide.",
 				"BANNER_CLOSE": "Bannière d'informations sur le nom de famille. Fermer"

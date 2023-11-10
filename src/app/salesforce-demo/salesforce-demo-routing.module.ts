@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Title.Home' },
   { path: 'medical-history', component: MedicalHistoryComponent, title: 'Medical History' }, //English
   { path: 'histoire-medical', component: MedicalHistoryComponent, title: 'Medical History' }, //French
-  { path: 'criminal-history', component: CriminalHistoryComponent, title: 'Criminal history' }, //English
+  { path: 'criminal-history', component: CriminalHistoryComponent, title: 'Criminal History' }, //English
   { path: 'antécédents-criminels', component: CriminalHistoryComponent, title: 'Antécédents Criminels' }, //French
 ];
 

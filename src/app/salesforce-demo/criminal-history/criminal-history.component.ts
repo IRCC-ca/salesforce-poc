@@ -475,7 +475,7 @@ export class CriminalHistoryComponent implements OnInit {
       }
     });
 
-    this.altLang.setAltLangLink('PersonalInfo');
+    this.altLang.setAltLangLink('CriminalHistory');
 
     this.progressIndicatorSub =
       this.formService.progressIndicatorObs$.subscribe((response: any) => {
