@@ -10,7 +10,7 @@ import {
 } from 'ircc-ds-angular-component-library';
 import { TranslateModule } from '@ngx-translate/core';
 import { MedicalHistoryComponent } from './medical-history/medical-history.component';
-import { PersonalInformationComponent } from './personal-information/personal-information.component';
+import { CriminalHistoryComponent } from './criminal-history/criminal-history.component';
 import { HomeComponent } from './home/home.component';
 import { SalesforceDemoComponent } from './salesforce-demo.component';
 import { HttpClientModule } from  '@angular/common/http';
@@ -21,7 +21,7 @@ import { apiservice } from './apiservice.service';
   declarations: [
     SalesforceDemoComponent,
     MedicalHistoryComponent,
-    PersonalInformationComponent,
+    CriminalHistoryComponent,
     HomeComponent,
   ],
   imports: [

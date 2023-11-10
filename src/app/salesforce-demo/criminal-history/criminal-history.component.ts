@@ -85,11 +85,11 @@ export const CITIES_OF_BIRTH_LOVS_ALL: ICityOfBirth[] = [
   ...CITIES_OF_BIRTH_LOVS_USA
 ];
 @Component({
-  selector: 'app-personal-information',
-  templateUrl: './personal-information.component.html',
-  styleUrls: ['./personal-information.component.scss']
+  selector: 'app-criminal-history',
+  templateUrl: './criminal-history.component.html',
+  styleUrls: ['./criminal-history.component.scss']
 })
-export class PersonalInformationComponent implements OnInit {
+export class CriminalHistoryComponent implements OnInit {
   @ViewChild('errorBanner') errorBannerRef?: ElementRef;
   altPathKey = '';
   altLangURL = '';

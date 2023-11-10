@@ -153,8 +153,8 @@ export class SalesforceDemoFormStateService {
     const homePage = '/' + lang //base route 
     const medicalHistoryPage = '/' + lang +
       '/' + this.translate.instant('ROUTES.MedicalHistory');
-    const personalInfoPage = '/' + lang +
-      '/' + this.translate.instant('ROUTES.PersonalInfo');
+    const criminalHistoryPage = '/' + lang +
+      '/' + this.translate.instant('ROUTES.CriminalHistory');
     const workInfoPage = '/' + lang +
       '/' + this.translate.instant('ROUTES.WorkInfo');
 
@@ -168,12 +168,12 @@ export class SalesforceDemoFormStateService {
         break;
       case medicalHistoryPage:
         if (action === 'next') {
-          this.router.navigateByUrl(personalInfoPage);
+          this.router.navigateByUrl(criminalHistoryPage);
         } else {
           this.router.navigateByUrl(homePage)
         }
         break;
-      case personalInfoPage:
+      case criminalHistoryPage:
         if (action === 'next') {
           this.router.navigateByUrl(workInfoPage);
         } else {
@@ -184,7 +184,7 @@ export class SalesforceDemoFormStateService {
         if (action === 'next') {
           this.router.navigateByUrl(workInfoPage);
         } else {
-          this.router.navigateByUrl(personalInfoPage);
+          this.router.navigateByUrl(criminalHistoryPage);
         }
         break;
     }
