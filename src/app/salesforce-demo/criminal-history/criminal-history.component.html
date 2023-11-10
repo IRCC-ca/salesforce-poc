@@ -13,18 +13,18 @@
       <ircc-cl-lib-progress-indicator [config]="progConfig"></ircc-cl-lib-progress-indicator>
     </div>
   <div class="content">
-    <div
+    <div class="page-content">
+      <div
+        id="ds-form"
+        class="form_container"
+      >
+          <div
       class="error_banner"
       *ngIf="showErrorBanner"
       #errorBanner
     >
       <ircc-cl-lib-banner [config]="errorBannerConfig"></ircc-cl-lib-banner>
     </div>
-    <div class="page-content">
-      <div
-        id="ds-form"
-        class="form_container"
-      >
         <div>
           <h1>Criminal history</h1>
           <p>{{ 'ACC_DEMO.PERSONAL_INFO.BODY' | translate }}</p>
