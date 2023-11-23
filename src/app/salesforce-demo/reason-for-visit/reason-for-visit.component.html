@@ -15,9 +15,16 @@
           <div class="error_banner" *ngIf="showErrorBanner" #errorBanner>
             <ircc-cl-lib-banner [config]="errorBannerConfig"></ircc-cl-lib-banner>
           </div>
-          <h1>Medical History</h1>
-          <p class="secondary-text">Provide some information about your medical history over the past five years.</p>
-          <ircc-cl-lib-radio-input [config]="poc_exam__c_config"></ircc-cl-lib-radio-input>
+          <h1>Reason for visit</h1>
+          <p class="secondary-text">Select the visa you're applying for, and the reason you need it. Provide some details about how long you will stay in Canada and your plans while here.</p>
+          <ircc-cl-lib-radio-input [config]="apply_multi_person_config"></ircc-cl-lib-radio-input>
+          <p>For example, you want to apply for yourself, your spouse and children (whether they travel with you or join you later).</p>
+          <ircc-cl-lib-banner [config]="error_apply_group_config" *ngIf="reasonForVisitForm.value['apply_multiple_person'] == 'Yes'"></ircc-cl-lib-banner>
+          <ircc-cl-lib-radio-input [config]="apply_on_behalf_config"></ircc-cl-lib-radio-input>
+          <p>To act as someone's representative, you must complete and submit a Use of a Representative [IMM 5476] form.</p>
+          <ircc-cl-lib-banner [config]="error_apply_on_behalf_config" *ngIf="reasonForVisitForm.value['apply_on_behalf'] == 'Yes'"></ircc-cl-lib-banner>
+
+          <!-- 
           <ircc-cl-lib-input [config]="poc_ime__c_config" *ngIf="medicalForm.value['poc_exam__c'] == 'Yes'"></ircc-cl-lib-input>
           <ircc-cl-lib-radio-input [config]="poc_dialysis__c_config"></ircc-cl-lib-radio-input>
           <ircc-cl-lib-radio-input [config]="poc_addiction__c_config"></ircc-cl-lib-radio-input>
@@ -39,7 +46,7 @@
               treatment, you can come to Canada.</li>
           </ul>
           <ircc-cl-lib-radio-input [config]="poc_tb_two__c_config"></ircc-cl-lib-radio-input>
-          <ircc-cl-lib-radio-input [config]="poc_tb_five__c_config"></ircc-cl-lib-radio-input>
+          <ircc-cl-lib-radio-input [config]="poc_tb_five__c_config"></ircc-cl-lib-radio-input> -->
           <div class="nav-button-container">
             <button (click)="previousPage()" category="plain">
               <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back
@@ -52,5 +59,3 @@
       <ircc-cl-lib-navigation></ircc-cl-lib-navigation>
     </div>
   </div>
-
-

@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { SalesforceDemoComponent } from './salesforce-demo.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { apiservice } from './apiservice.service';
+import { ReasonForVisitComponent } from './reason-for-visit/reason-for-visit.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { apiservice } from './apiservice.service';
     MedicalHistoryComponent,
     CriminalHistoryComponent,
     HomeComponent,
+    ReasonForVisitComponent,
   ],
   imports: [
     CommonModule,
