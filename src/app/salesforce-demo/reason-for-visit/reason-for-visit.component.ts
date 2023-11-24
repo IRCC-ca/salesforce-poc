@@ -32,7 +32,7 @@ import { Apollo, gql } from "apollo-angular";
 import { apiservice } from "../apiservice.service";
 import { HttpHeaders } from "@angular/common/http";
 
-const CREATE_ACCOUNT = gql`mutation AccountReason(
+const CREATE_REASON_FOR_VISIT = gql`mutation AccountReason(
   $enter_date__c: Date!
   $leave_date__c : Date!
   $uci__c : String!
@@ -44,7 +44,7 @@ const CREATE_ACCOUNT = gql`mutation AccountReason(
       Name: "Bobby Test"
       enter_date__c: $enter_date__c
       leave_date__c : $leave_date__c
-      uci__c : $ uci__c
+      uci__c : $uci__c
       what_youll_do_in_canada__c : $what_youll_do_in_canada__c
       }
     }) {
@@ -70,7 +70,7 @@ const CREATE_ACCOUNT = gql`mutation AccountReason(
   }
 }
 `
-const GET_ACCOUNT = gql `
+const GET_REASON_FOR_VISIT = gql `
 query accountById($id: ID) {
   uiapi {
     query {
@@ -473,7 +473,7 @@ export class ReasonForVisitComponent implements OnInit {
   };
 
   leave_date__c_config: IDatePickerConfig = {
-    id: "enter_date__c",
+    id: "leave_date__c",
     formGroup: this.reasonForVisitForm,
     label: 'When will you leave Canada?',
     required: true,
@@ -605,7 +605,7 @@ export class ReasonForVisitComponent implements OnInit {
     let id = localStorage.getItem('reason_for_visit_id');
     if (id) {
       this.apollo.watchQuery({
-        query: GET_ACCOUNT,
+        query: GET_REASON_FOR_VISIT,
         variables: {
           id: id
         },
@@ -618,12 +618,23 @@ export class ReasonForVisitComponent implements OnInit {
       }).valueChanges.subscribe(
         (data: any) => {
           console.log('got data =>', data);
+          let formData = data.data.uiapi.query.reason_for_visit__c.edges[0].node;
+          const entryDateString = this.splitDate(formData.enter_date__c.value)
+          const exitDateString = this.splitDate(formData.leave_date__c.value)
 
-          // let formData = data.data.uiapi.query.reason_for_visit__c.edges[0].node;
-          // this.reasonForVisitForm.get(this.enter_date__c_config.id)?.setValue(formData.enter_date__c.value);
-          // this.reasonForVisitForm.get(this.leave_date__c_config.id)?.setValue(formData.leave_date__c.value);
-          // this.reasonForVisitForm.get(this.uci__c_config.id)?.setValue(formData.uci__c.value);
-          // this.reasonForVisitForm.get(this.what_youll_do_in_canada__c_config.id)?.setValue(formData.what_youll_do_in_canada__c.value);
+          if (entryDateString != null){
+            this.reasonForVisitForm.get(this.enter_date__c_config.id + '_dayControl')?.setValue(entryDateString.day);
+            this.reasonForVisitForm.get(this.enter_date__c_config.id + '_monthControl')?.setValue(entryDateString.month);
+            this.reasonForVisitForm.get(this.enter_date__c_config.id + '_yearControl')?.setValue(entryDateString.year);
+          }
+
+          if (exitDateString != null) {
+            this.reasonForVisitForm.get(this.leave_date__c_config.id + '_dayControl')?.setValue(exitDateString.day);
+            this.reasonForVisitForm.get(this.leave_date__c_config.id + '_monthControl')?.setValue(exitDateString.month);
+            this.reasonForVisitForm.get(this.leave_date__c_config.id + '_yearControl')?.setValue(exitDateString.year);
+          }
+          this.reasonForVisitForm.get(this.uci__c_config.id)?.setValue(formData.uci__c.value);
+          this.reasonForVisitForm.get(this.what_youll_do_in_canada__c_config.id)?.setValue(formData.what_youll_do_in_canada__c.value);
         }
       )
     }
@@ -636,6 +647,28 @@ export class ReasonForVisitComponent implements OnInit {
   convertStrToBool(value: string | boolean){
     return value === 'Yes' ? true : false;
   }
+
+  splitDate(dateString: string) {
+  // Parse the date string
+  const dateObject = new Date(dateString);
+
+  // Check if the date is valid
+  if (isNaN(dateObject.getTime())) {
+    console.error('Invalid date string. Please provide a valid date in the format "YYYY-MM-DD".');
+    return null;
+  }
+
+  // Extract year, month, and day
+  const year = dateObject.getFullYear();
+  const month = dateObject.getMonth() + 1; // Months are zero-indexed, so add 1
+  const day = dateObject.getDate();
+
+  return {
+    year: year,
+    month: month,
+    day: day
+  };
+}
 
   /**
    * Update the progress indicator status (unlock/lock the next element)
@@ -679,12 +712,26 @@ export class ReasonForVisitComponent implements OnInit {
           });
         });
       } else {
+          const entryDay =  this.reasonForVisitForm.get(this.enter_date__c_config.id + '_dayControl')?.value
+          const entryMonth =  this.reasonForVisitForm.get(this.enter_date__c_config.id + '_monthControl')?.value
+          const entryYear =  this.reasonForVisitForm.get(this.enter_date__c_config.id + '_yearControl')?.value
+          const concatenatedEntryDate = new Date(`${entryYear}-${entryMonth}-${entryDay}`);
+          const formattedEntryDate = concatenatedEntryDate.toISOString().split('T')[0];
+          console.log("entryDate?",formattedEntryDate);
+
+          const exitDay =  this.reasonForVisitForm.get(this.leave_date__c_config.id + '_dayControl')?.value
+          const exitMonth =  this.reasonForVisitForm.get(this.leave_date__c_config.id + '_monthControl')?.value
+          const exitYear =  this.reasonForVisitForm.get(this.leave_date__c_config.id + '_yearControl')?.value
+          const concatenatedExitDate = new Date(`${exitYear}-${exitMonth}-${exitDay}`);
+          const formattedExitDate = concatenatedExitDate.toISOString().split('T')[0];
+          console.log("exitDate?",formattedExitDate);
+          
           this.apollo
           .mutate({
-            mutation: CREATE_ACCOUNT,
+            mutation: CREATE_REASON_FOR_VISIT,
             variables: {
-              enter_date__c: this.reasonForVisitForm.get(this.enter_date__c_config.id)?.value,
-              leave_date__c : this.reasonForVisitForm.get(this.leave_date__c_config.id)?.value,
+              enter_date__c: formattedEntryDate,
+              leave_date__c : formattedExitDate,
               uci__c : this.reasonForVisitForm.get(this.uci__c_config.id)?.value,
               what_youll_do_in_canada__c : this.reasonForVisitForm.get(this.what_youll_do_in_canada__c_config.id)?.value,
             },
