@@ -178,7 +178,7 @@ export class SalesforceDemoFormStateService {
         if (action === 'next') {
           this.router.navigateByUrl(criminalHistoryPage);
         } else {
-          this.router.navigateByUrl(homePage)
+          this.router.navigateByUrl(reasonForVisit)
         }
         break;
       case criminalHistoryPage:
