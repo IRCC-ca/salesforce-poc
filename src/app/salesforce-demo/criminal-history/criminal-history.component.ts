@@ -28,7 +28,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, first } from 'rxjs';
 import { LanguageSwitchService } from '@app/@shared/language-switch/language-switch.service';
-import { SalesforceDemoFormStateService, IDemoFormDataInterface } from '../salesforce-demo-form-state.service';
+import { SalesforceDemoFormStateService } from '../salesforce-demo-form-state.service';
 import { requiredTrueValidator } from '@app/@shared/shared-validators';
 
 
@@ -98,7 +98,7 @@ export class CriminalHistoryComponent implements OnInit {
   showErrorBanner = false;
   showFamilyNameBanner = false;
   showSexAtBirthBanner = false;
-  formData: IDemoFormDataInterface = {};
+  // formData: IDemoFormDataInterface = {};
   innerWidth = 0;
 
   routerSub?: Subscription;
@@ -456,7 +456,7 @@ export class CriminalHistoryComponent implements OnInit {
      *
      */
     this.form.valueChanges.subscribe((val) => {
-      this.setFormData(val);
+      // this.setFormData(val);
     });
   }
 
@@ -544,7 +544,7 @@ export class CriminalHistoryComponent implements OnInit {
     /**
 * Get local storage form data on page reload
 */
-    this.getFormDataFromService();
+    // this.getFormDataFromService();
   }
 
   /**
@@ -702,23 +702,23 @@ export class CriminalHistoryComponent implements OnInit {
   /**
  * Get local storage form data on page reload from the RequestFormService
  */
-  getFormDataFromService() {
-    this.formService
-      .getFormData()
-      .pipe(first()) //take only the first to avoid infinite loop
-      .subscribe((val) => {
-        this.formData = val;
-        this.form.patchValue(this.formData);
-        this.form.updateValueAndValidity();
-      });
-  }
+  // getFormDataFromService() {
+  //   this.formService
+  //     .getFormData()
+  //     .pipe(first()) //take only the first to avoid infinite loop
+  //     .subscribe((val) => {
+  //       this.formData = val;
+  //       this.form.patchValue(this.formData);
+  //       this.form.updateValueAndValidity();
+  //     });
+  // }
 
   /**
  * Set local storage form data on page reload with the service
  */
-  setFormData(requestFormData: IDemoFormDataInterface): void {
-    return this.formService.setFormData(requestFormData);
-  }
+  // setFormData(requestFormData: IDemoFormDataInterface): void {
+  //   return this.formService.setFormData(requestFormData);
+  // }
 
   ngOnDestroy() {
     this.routerSub?.unsubscribe();
