@@ -160,14 +160,14 @@ export class SalesforceDemoFormStateService {
       '/' + this.translate.instant('ROUTES.WorkInfo');
 
     switch (this.router.url) {
-      case reasonForVisit:
+      case homePage:
         if (action === 'next') {
-          this.router.navigateByUrl(medicalHistoryPage);
+          this.router.navigateByUrl(reasonForVisit);
         } else {
           this.router.navigateByUrl(homePage)
         }
         break;
-      case homePage:
+      case reasonForVisit:
         if (action === 'next') {
           this.router.navigateByUrl(medicalHistoryPage);
         } else {
