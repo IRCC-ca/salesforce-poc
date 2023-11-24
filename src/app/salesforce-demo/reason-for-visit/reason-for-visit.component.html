@@ -17,36 +17,51 @@
           </div>
           <h1>Reason for visit</h1>
           <p class="secondary-text">Select the visa you're applying for, and the reason you need it. Provide some details about how long you will stay in Canada and your plans while here.</p>
+          
           <ircc-cl-lib-radio-input [config]="apply_multi_person_config"></ircc-cl-lib-radio-input>
+          
           <p>For example, you want to apply for yourself, your spouse and children (whether they travel with you or join you later).</p>
-          <ircc-cl-lib-banner [config]="error_apply_group_config" *ngIf="reasonForVisitForm.value['apply_multiple_person'] == 'Yes'"></ircc-cl-lib-banner>
+          
+          <div class="form_error_banner">
+            <ircc-cl-lib-banner [config]="error_apply_group_config" *ngIf="reasonForVisitForm.value['apply_multiple_person'] == 'Yes'"></ircc-cl-lib-banner>
+          </div>
+          
           <ircc-cl-lib-radio-input [config]="apply_on_behalf_config"></ircc-cl-lib-radio-input>
+          
           <p>To act as someone's representative, you must complete and submit a Use of a Representative [IMM 5476] form.</p>
-          <ircc-cl-lib-banner [config]="error_apply_on_behalf_config" *ngIf="reasonForVisitForm.value['apply_on_behalf'] == 'Yes'"></ircc-cl-lib-banner>
+          <div class="form_error_banner">
+            <ircc-cl-lib-banner [config]="error_apply_on_behalf_config" *ngIf="reasonForVisitForm.value['apply_on_behalf'] == 'Yes'"></ircc-cl-lib-banner>
+          </div>
 
+          <ircc-cl-lib-select [config]="want_apply_for_config"></ircc-cl-lib-select>
+          
+          <div class="form_error_banner">
+            <ircc-cl-lib-banner [config]="error_want_apply_transit_config" *ngIf="reasonForVisitForm.value['want_apply_select'] == 'transit'"></ircc-cl-lib-banner>
+            <ircc-cl-lib-banner [config]="error_want_apply_temp_special_config" *ngIf="reasonForVisitForm.value['want_apply_select'] == 'special'"></ircc-cl-lib-banner>
+            <ircc-cl-lib-banner [config]="error_apply_unsure_config" *ngIf="reasonForVisitForm.value['want_apply_select'] == 'unsure'"></ircc-cl-lib-banner>
+          </div>
+
+          <div>
+            <ircc-cl-lib-select [config]="why_do_you_need_visa_config"></ircc-cl-lib-select>
+          </div>
+
+          <div class="text-area-container">
+            <ircc-cl-lib-textarea [config]="what_youll_do_in_canada__c_config"></ircc-cl-lib-textarea>
+          </div>
+
+          <div class="entry-exit-date-container">
+            <ircc-cl-lib-date-picker [config]="enter_date__c_config"></ircc-cl-lib-date-picker>
+            <p>If you don't yet know the date you will travel to Canada, select an approximate date.</p>
+          </div>
+          <div class="entry-exit-date-container">
+            <ircc-cl-lib-date-picker [config]="leave_date__c_config"></ircc-cl-lib-date-picker>
+            <p>If you don't yet know the date you will leave Canada, select an approximate date.</p>
+          </div>
+          <div class="uci_container">
+            <ircc-cl-lib-input [config]="uci__c_config"></ircc-cl-lib-input>
+          </div>
           <!-- 
-          <ircc-cl-lib-input [config]="poc_ime__c_config" *ngIf="medicalForm.value['poc_exam__c'] == 'Yes'"></ircc-cl-lib-input>
-          <ircc-cl-lib-radio-input [config]="poc_dialysis__c_config"></ircc-cl-lib-radio-input>
-          <ircc-cl-lib-radio-input [config]="poc_addiction__c_config"></ircc-cl-lib-radio-input>
-          <ircc-cl-lib-radio-input [config]="poc_hospitalized__c_config"></ircc-cl-lib-radio-input>
-          <ircc-cl-lib-radio-input [config]="poc_syphilis__c_config"></ircc-cl-lib-radio-input>
-          <ul class="trailing-text">
-            <li>Syphilis is a disease caused by bacteria and may also be known as lues, syph or pox.</li>
-            <li>If you have a history of syphilis, it doesn't mean that you can't come to Canada. Once you complete your
-              treatment, you can come to Canada.</li>
-          </ul>
-          <ircc-cl-lib-radio-input [config]="poc_syphilis_treated__c_config"></ircc-cl-lib-radio-input>
-          <p class="trailing-text">Syphilis is treated with medication that is given as pills for 28 days or as 3 needles. The
-            medications are called penicillin or doxycycline.</p>
-          <h2>Tuberculosis</h2>
-          <ul class="secondary-text">
-            <li>Tuberculosis is a disease of the lungs caused by bacteria. It may also be known as TB, Potts disease, Koch's
-              disease, scrofula, latent tuberculosis or extra-pulmonary tuberculosis.</li>
-            <li>If you have a history of tuberculosis, it doesn't mean that you can't come to Canada. Once you complete your
-              treatment, you can come to Canada.</li>
-          </ul>
-          <ircc-cl-lib-radio-input [config]="poc_tb_two__c_config"></ircc-cl-lib-radio-input>
-          <ircc-cl-lib-radio-input [config]="poc_tb_five__c_config"></ircc-cl-lib-radio-input> -->
+          -->
           <div class="nav-button-container">
             <button (click)="previousPage()" category="plain">
               <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back

@@ -41,11 +41,6 @@
     margin: 0 0 24px 0;
   }
 
-  ircc-cl-lib-input {
-    border-left: 4px solid var(--global-neutral-border, #868687);
-    padding-left: 24px;
-  }
-
   .trailing-bullets {
     margin-top: -12px;
   }
@@ -81,4 +76,12 @@ button {
   display: flex;
   flex-direction: row;
   gap: 9px;
+}
+
+.text-area-container {
+  margin: 24px 0;
+}
+
+.entry-exit-date-container {
+  margin: 24px 0;
 }

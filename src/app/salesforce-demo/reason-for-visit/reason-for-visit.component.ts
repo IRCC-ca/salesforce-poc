@@ -20,6 +20,9 @@ import {
   INavigationItemHeading,
   INavigationItemLink,
   NavigationService,
+  ISelectConfig,
+  ITextareaComponentConfig,
+  IDatePickerConfig,
 } from "ircc-ds-angular-component-library";
 import { Subscription } from "rxjs";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
@@ -28,7 +31,6 @@ import { SalesforceDemoFormStateService } from "../salesforce-demo-form-state.se
 import { Apollo, gql } from "apollo-angular";
 import { apiservice } from "../apiservice.service";
 import { HttpHeaders } from "@angular/common/http";
-
 
 const CREATE_ACCOUNT = gql`mutation AccountReason(
   $enter_date__c: Date!
@@ -286,24 +288,24 @@ export class ReasonForVisitComponent implements OnInit {
 
   reasonForVisitForm = new FormGroup({});
 
-    apply_multi_person_config: IRadioInputComponentConfig = {
-    id: "apply_multiple_person",
-    formGroup: this.reasonForVisitForm,
-    required: true,
-    label:
-      "Do you want to apply for more than 1 person at the same time?",
-    options: [
-      {
-        text: "Yes",
-      },
-      {
-        text: "No",
-      },
-    ],
+  apply_multi_person_config: IRadioInputComponentConfig = {
+  id: "apply_multiple_person",
+  formGroup: this.reasonForVisitForm,
+  required: true,
+  label:
+    "Do you want to apply for more than 1 person at the same time?",
+  options: [
+    {
+      text: "Yes",
+    },
+    {
+      text: "No",
+    },
+  ],
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-    error_apply_group_config: IBannerConfig = {
+  error_apply_group_config: IBannerConfig = {
     id: 'error_apply_group',
     title:"You can't use this application to apply as a group",
     content: 'Find out how you can <a href="">apply for a visitor visa.</a>',
@@ -313,7 +315,7 @@ export class ReasonForVisitComponent implements OnInit {
     size: 'small'
   };
 
-    apply_on_behalf_config: IRadioInputComponentConfig = {
+  apply_on_behalf_config: IRadioInputComponentConfig = {
     id: "apply_on_behalf",
     formGroup: this.reasonForVisitForm,
     required: true,
@@ -330,7 +332,7 @@ export class ReasonForVisitComponent implements OnInit {
     errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-    error_apply_on_behalf_config: IBannerConfig = {
+  error_apply_on_behalf_config: IBannerConfig = {
     id: 'error_apply_group',
     title:"You can't use this application to apply with a representative",
     content: "You must use the <a href=''>Authorized Paid Representatives Portal</a> to apply. If you're not an authorized paid representative, find out how you can <a href=''>apply for a visitor visa.</a>",
@@ -340,61 +342,153 @@ export class ReasonForVisitComponent implements OnInit {
     size: 'small'
   };
 
-  enter_date__c_config: IRadioInputComponentConfig = {
+  want_apply_for_config: ISelectConfig = {
+    id: 'want_apply_select',
+    formGroup: this.reasonForVisitForm,
+    label: 'I want to apply for a ',
+    required: true,
+    placeholder: 'Select a purpose for your application',
+    options: [
+      {
+        text: 'Visitor visa or super visa',
+        value: 'visitor'
+      },
+      {
+        text: 'Transit visa',
+        value: 'transit'
+      },
+      {
+        text: 'Temporary special measures',
+        value: 'special'
+      },
+      {
+        text: 'Not sure',
+        value: 'unsure'
+      }
+    ],
+    errorMessages: [
+      {
+        key: 'required',
+        errorLOV: 'ERROR.requiredRadioError'
+      }
+    ]
+  };
+
+  error_want_apply_transit_config: IBannerConfig = {
+  id: 'error_apply_visitor',
+  title:"You can't use this application to apply for a transit visa",
+  content: "Find out how you can <a href=''>apply for a transit visa.</a>",
+  type: 'critical',
+  rounded: false,
+  dismissible: false,
+  size: 'small'
+};
+
+  error_want_apply_temp_special_config: IBannerConfig = {
+    id: 'error_apply_visitor',
+    title:"You can't use this application to apply for a visitor visa for the option you selected",
+    content: "Find out how you can <a href=''>apply for a visitor visa.</a>",
+    type: 'critical',
+    rounded: false,
+    dismissible: false,
+    size: 'small'
+  };
+
+
+  error_apply_unsure_config: IBannerConfig = {
+    id: 'error_apply_visitor',
+    title:"You can't use this application if you're not sure of your purpose in applying.",
+    content: "Find out how you can <a href=''>apply for a transit visa.</a>",
+    type: 'critical',
+    rounded: false,
+    dismissible: false,
+    size: 'small'
+  };
+
+    why_do_you_need_visa_config: ISelectConfig = {
+    id: 'why_need_visa_select',
+    formGroup: this.reasonForVisitForm,
+    label: 'Why do you need a visa ',
+    required: true,
+    placeholder: 'Select a reason',
+    options: [
+      {
+        text: 'Option 1',
+        value: '1'
+      },
+      {
+        text: 'Option 2',
+        value: '2'
+      },
+      {
+        text: 'Option 3',
+        value: '3'
+      },
+      {
+        text: 'Option 4',
+        value: '4'
+      }
+    ],
+    errorMessages: [
+      {
+        key: 'required',
+        errorLOV: 'ERROR.requiredRadioError'
+      }
+    ]
+  };
+  
+    what_youll_do_in_canada__c_config: ITextareaComponentConfig = {
+    formGroup: this.reasonForVisitForm,
+    id: 'what_youll_do_in_canada__c',
+    label: "Tell us more about what you'll do in Canada",
+    desc: 'Include dates and places you plan to visit.',
+    required: true,
+    charLimit: '475',
+    resizable: 'vertical',
+    size: 'large',
+    errorMessages: [
+      {
+        key: 'required',
+        errorLOV: 'This field is required'
+      },
+      {
+        key: 'maxLength',
+        errorLOV: 'Maximum number of characters reached'
+      }
+    ]
+   
+  };
+
+  enter_date__c_config: IDatePickerConfig = {
     id: "enter_date__c",
     formGroup: this.reasonForVisitForm,
+    label: 'When will you enter Canada?',
     required: true,
-    label:
-      "Have you had a medical exam performed by an IRCC authorized panel physician (doctor) within the last 12 months?",
-    options: [
+    errorMessages: [
       {
-        text: "Yes",
-      },
-      {
-        text: "No",
-      },
+        key: 'required',
+        errorLOV: 'This field is required'
+      }
     ],
-    errorMessages: [{ key: "required", errorLOV: "This field is required" }],
   };
 
-  uci__c_config: IRadioInputComponentConfig = {
+    leave_date__c_config: IDatePickerConfig = {
+    id: "enter_date__c",
+    formGroup: this.reasonForVisitForm,
+    label: 'When will you leave Canada?',
+    required: true,
+    errorMessages: [
+      {
+        key: 'required',
+        errorLOV: 'This field is required'
+      }
+    ],
+  };
+  
+  uci__c_config: IInputComponentConfig = {
     id: "uci__c",
     formGroup: this.reasonForVisitForm,
-    required: true,
-    label: "Are you currently receiving dialysis treatment?",
-    options: [
-      {
-        text: "Yes",
-      },
-      {
-        text: "No",
-      },
-    ],
-    errorMessages: [{ key: "required", errorLOV: "This field is required" }],
-  };
-
-  what_youll_do_in_canada__c_config: IRadioInputComponentConfig = {
-    id: "what_youll_do_in_canada__c",
-    formGroup: this.reasonForVisitForm,
-    required: true,
-    label:
-      "Have you had a drug or alcohol addiction causing you to be a threat to yourself or others, or to be hospitalized?",
-    options: [
-      {
-        text: "Yes",
-      },
-      {
-        text: "No",
-      },
-    ],
-    errorMessages: [{ key: "required", errorLOV: "This field is required" }],
-  };
-
-  leave_date__c_config: IInputComponentConfig = {
-    id: "leave_date__c",
-    formGroup: this.reasonForVisitForm,
-    label:
-      "If known, please provide your Immigraiton medical examination (IME) or Unique medical identifier (UMI) number. (optional)",
+    label: "UCI (unique client identifier), if known (optional)"    
   };
 
   altPathKey = "";
@@ -427,7 +521,7 @@ export class ReasonForVisitComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.updateProgressBarOrientation();
 
-    this.altLang.setAltLangLink("MedicalHistory");
+    this.altLang.setAltLangLink("ReasonForVisit");
 
     this.formService.updateSelected(0);
     //if the page has moved to this one via a back or forward browser button, this detects the move and updates the page.
@@ -452,21 +546,56 @@ export class ReasonForVisitComponent implements OnInit {
     this.reasonForVisitForm.addControl(
       this.apply_on_behalf_config.id,
       new FormControl("", Validators.required)
-    );   
+    );
+    
+    this.reasonForVisitForm.addControl(
+      this.want_apply_for_config.id,
+      new FormControl("", Validators.required)
+    ); 
 
     this.reasonForVisitForm.addControl(
-      this.enter_date__c_config.id,
+      this.why_do_you_need_visa_config.id,
       new FormControl("", Validators.required)
     );
     
-    this.reasonForVisitForm.addControl(this.leave_date__c_config.id, new FormControl(""));
-    this.reasonForVisitForm.addControl(
-      this.uci__c_config.id,
-      new FormControl("", Validators.required)
-    );
     this.reasonForVisitForm.addControl(
       this.what_youll_do_in_canada__c_config.id,
       new FormControl("", Validators.required)
+    ); 
+
+    this.reasonForVisitForm.addControl(
+      this.enter_date__c_config.id + '_dayControl',
+      new FormControl("", Validators.required)
+    );
+
+    this.reasonForVisitForm.addControl(
+      this.enter_date__c_config.id + '_monthControl',
+      new FormControl("", Validators.required)
+    );
+
+    this.reasonForVisitForm.addControl(
+      this.enter_date__c_config.id + '_yearControl',
+      new FormControl("", Validators.required)
+    );
+
+        this.reasonForVisitForm.addControl(
+      this.leave_date__c_config.id + '_dayControl',
+      new FormControl("", Validators.required)
+    );
+
+    this.reasonForVisitForm.addControl(
+      this.leave_date__c_config.id + '_monthControl',
+      new FormControl("", Validators.required)
+    );
+
+    this.reasonForVisitForm.addControl(
+      this.leave_date__c_config.id + '_yearControl',
+      new FormControl("", Validators.required)
+    );
+    
+    this.reasonForVisitForm.addControl(
+      this.uci__c_config.id,
+      new FormControl("")
     );
 
     this.reasonForVisitForm.valueChanges.subscribe((change) => {
@@ -490,11 +619,11 @@ export class ReasonForVisitComponent implements OnInit {
         (data: any) => {
           console.log('got data =>', data);
 
-          let formData = data.data.uiapi.query.reason_for_visit__c.edges[0].node;
-          this.reasonForVisitForm.get(this.enter_date__c_config.id)?.setValue(formData.enter_date__c.value);
-          this.reasonForVisitForm.get(this.leave_date__c_config.id)?.setValue(formData.leave_date__c.value);
-          this.reasonForVisitForm.get(this.uci__c_config.id)?.setValue(formData.uci__c.value);
-          this.reasonForVisitForm.get(this.what_youll_do_in_canada__c_config.id)?.setValue(formData.what_youll_do_in_canada__c.value);
+          // let formData = data.data.uiapi.query.reason_for_visit__c.edges[0].node;
+          // this.reasonForVisitForm.get(this.enter_date__c_config.id)?.setValue(formData.enter_date__c.value);
+          // this.reasonForVisitForm.get(this.leave_date__c_config.id)?.setValue(formData.leave_date__c.value);
+          // this.reasonForVisitForm.get(this.uci__c_config.id)?.setValue(formData.uci__c.value);
+          // this.reasonForVisitForm.get(this.what_youll_do_in_canada__c_config.id)?.setValue(formData.what_youll_do_in_canada__c.value);
         }
       )
     }
@@ -502,6 +631,10 @@ export class ReasonForVisitComponent implements OnInit {
 
   convertBoolToStr(value: string | boolean){
     return value === true ? "Yes" : "No";
+  }
+
+  convertStrToBool(value: string | boolean){
+    return value === 'Yes' ? true : false;
   }
 
   /**
@@ -524,10 +657,6 @@ export class ReasonForVisitComponent implements OnInit {
         }
       }
     }
-  }
-
-  convertStrToBool(value: string | boolean){
-    return value === 'Yes' ? true : false;
   }
 
   /**
