@@ -405,7 +405,7 @@ export class ReasonForVisitComponent implements OnInit {
     size: 'small'
   };
 
-    why_do_you_need_visa_config: ISelectConfig = {
+  why_do_you_need_visa_config: ISelectConfig = {
     id: 'why_need_visa_select',
     formGroup: this.reasonForVisitForm,
     label: 'Why do you need a visa ',
@@ -437,7 +437,7 @@ export class ReasonForVisitComponent implements OnInit {
     ]
   };
   
-    what_youll_do_in_canada__c_config: ITextareaComponentConfig = {
+  what_youll_do_in_canada__c_config: ITextareaComponentConfig = {
     formGroup: this.reasonForVisitForm,
     id: 'what_youll_do_in_canada__c',
     label: "Tell us more about what you'll do in Canada",
@@ -472,7 +472,7 @@ export class ReasonForVisitComponent implements OnInit {
     ],
   };
 
-    leave_date__c_config: IDatePickerConfig = {
+  leave_date__c_config: IDatePickerConfig = {
     id: "enter_date__c",
     formGroup: this.reasonForVisitForm,
     label: 'When will you leave Canada?',
@@ -578,7 +578,7 @@ export class ReasonForVisitComponent implements OnInit {
       new FormControl("", Validators.required)
     );
 
-        this.reasonForVisitForm.addControl(
+    this.reasonForVisitForm.addControl(
       this.leave_date__c_config.id + '_dayControl',
       new FormControl("", Validators.required)
     );
@@ -602,7 +602,7 @@ export class ReasonForVisitComponent implements OnInit {
       console.log(change);
     });
 
-    let id = localStorage.getItem('medical_id');
+    let id = localStorage.getItem('reason_for_visit_id');
     if (id) {
       this.apollo.watchQuery({
         query: GET_ACCOUNT,
@@ -698,7 +698,7 @@ export class ReasonForVisitComponent implements OnInit {
             (data: any)  => {
               console.log('got data - from subscribe: ', data);
               if (data) {
-                localStorage.setItem('medical_id', data.data.uiapi.AccountCreate.Record.Id)
+                localStorage.setItem('reason_for_visit_id', data.data.uiapi.AccountCreate.Record.Id)
               }
             },
             error => {
