@@ -41,12 +41,12 @@ const CREATE_REASON_FOR_VISIT = gql`mutation AccountReason(
   uiapi {
     AccountCreate(input: {
       reason_for_visit__c: {
-      Name: "Bobby Test"
-      enter_date__c: $enter_date__c
-      leave_date__c : $leave_date__c
-      uci__c : $uci__c
-      what_youll_do_in_canada__c : $what_youll_do_in_canada__c
-      }
+        Name: "Bobby Test"
+        enter_date__c: $enter_date__c
+        leave_date__c : $leave_date__c
+        uci__c : $uci__c
+        what_youll_do_in_canada__c : $what_youll_do_in_canada__c
+        }
     }) {
       Record {
         Id
