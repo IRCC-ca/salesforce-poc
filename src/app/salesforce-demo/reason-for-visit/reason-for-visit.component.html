@@ -1,0 +1,77 @@
+  <div class="page_container">
+    <div class="save-button-container">
+      <button class="save-btn" category="plain">
+        <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Save and exit
+      </button>
+      <p class="secondary-text">Last saved 5 mins ago</p>
+    </div>
+    <h1 class="h5 secondary-text emphasis">Visitor visa application</h1>
+    <div class="progress-container">
+      <ircc-cl-lib-progress-indicator [config]="progConfig"></ircc-cl-lib-progress-indicator>
+    </div>
+    <div class="content">
+      <div class="page-content">
+        <div class="mh-container">
+          <div class="error_banner" *ngIf="showErrorBanner" #errorBanner>
+            <ircc-cl-lib-banner [config]="errorBannerConfig"></ircc-cl-lib-banner>
+          </div>
+          <h1>Reason for visit</h1>
+          <p class="secondary-text">Select the visa you're applying for, and the reason you need it. Provide some details about how long you will stay in Canada and your plans while here.</p>
+          
+          <ircc-cl-lib-radio-input [config]="apply_multi_person_config"></ircc-cl-lib-radio-input>
+          
+          <p>For example, you want to apply for yourself, your spouse and children (whether they travel with you or join you later).</p>
+          
+          <div class="form_error_banner">
+            <ircc-cl-lib-banner [config]="error_apply_group_config" *ngIf="reasonForVisitForm.value['apply_multiple_person'] == 'Yes'"></ircc-cl-lib-banner>
+          </div>
+          
+          <ircc-cl-lib-radio-input [config]="apply_on_behalf_config"></ircc-cl-lib-radio-input>
+          
+          <p>To act as someone's representative, you must complete and submit a Use of a Representative [IMM 5476] form.</p>
+          <div class="form_error_banner">
+            <ircc-cl-lib-banner [config]="error_apply_on_behalf_config" *ngIf="reasonForVisitForm.value['apply_on_behalf'] == 'Yes'"></ircc-cl-lib-banner>
+          </div>
+
+          <ircc-cl-lib-select [config]="want_apply_for_config"></ircc-cl-lib-select>
+          
+          <div class="form_error_banner">
+            <ircc-cl-lib-banner [config]="error_want_apply_transit_config" *ngIf="reasonForVisitForm.value['want_apply_select'] == 'transit'"></ircc-cl-lib-banner>
+            <ircc-cl-lib-banner [config]="error_want_apply_temp_special_config" *ngIf="reasonForVisitForm.value['want_apply_select'] == 'special'"></ircc-cl-lib-banner>
+            <ircc-cl-lib-banner [config]="error_apply_unsure_config" *ngIf="reasonForVisitForm.value['want_apply_select'] == 'unsure'"></ircc-cl-lib-banner>
+          </div>
+
+          <div>
+            <ircc-cl-lib-select [config]="why_do_you_need_visa_config"></ircc-cl-lib-select>
+          </div>
+
+          <div class="text-area-container">
+            <ircc-cl-lib-textarea [config]="what_youll_do_in_canada__c_config"></ircc-cl-lib-textarea>
+          </div>
+
+          <div class="entry-exit-date-container">
+            <ircc-cl-lib-date-picker [config]="enter_date__c_config"></ircc-cl-lib-date-picker>
+            <p>If you don't yet know the date you will travel to Canada, select an approximate date.</p>
+          </div>
+          
+          <div class="entry-exit-date-container">
+            <ircc-cl-lib-date-picker [config]="leave_date__c_config"></ircc-cl-lib-date-picker>
+            <p>If you don't yet know the date you will leave Canada, select an approximate date.</p>
+          </div>
+          
+          <div class="uci_container">
+            <ircc-cl-lib-input [config]="uci__c_config"></ircc-cl-lib-input>
+          </div>
+
+          <div class="nav-button-container">
+            <button (click)="previousPage()" category="plain">
+              <ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-left"></ircc-cl-lib-icon>Back
+            </button>
+            <button (click)="navButton()">Save and continue<ircc-cl-lib-icon FA_keywords="fa-regular fa-arrow-right">
+              </ircc-cl-lib-icon></button>
+          </div>
+        </div>
+      </div>
+      <ircc-cl-lib-navigation></ircc-cl-lib-navigation>
+    </div>
+  </div>

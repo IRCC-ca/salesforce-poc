@@ -8,26 +8,26 @@ import {
 } from 'ircc-ds-angular-component-library';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-export interface IDemoFormDataInterface {
-  ['family-name']?: string;
-  ['given-name']?: string;
-  ['sex-at-birth']?: string;
-  ['date-requested-datepicker_yearControl']?: string;
-  ['date-requested-datepicker_monthControl']?: string;
-  ['date-requested-datepicker_dayControl']?: string;
-  ['country']?: string;
-  ['city']?: string;
-  ['declaration']?: boolean;
-  [key: string]: any;
-}
+// export interface IDemoFormDataInterface {
+//   ['family-name']?: string;
+//   ['given-name']?: string;
+//   ['sex-at-birth']?: string;
+//   ['date-requested-datepicker_yearControl']?: string;
+//   ['date-requested-datepicker_monthControl']?: string;
+//   ['date-requested-datepicker_dayControl']?: string;
+//   ['country']?: string;
+//   ['city']?: string;
+//   ['declaration']?: boolean;
+//   [key: string]: any;
+// }
 
 @Injectable({
   providedIn: 'root'
 })
 export class SalesforceDemoFormStateService {
-  private formData = new BehaviorSubject<IDemoFormDataInterface>({});
-  formObs = this.formData.asObservable();
-  private storageKey: string = 'formData';
+  // private formData = new BehaviorSubject<IDemoFormDataInterface>({});
+  // formObs = this.formData.asObservable();
+  // private storageKey: string = 'formData';
 
   constructor(
     private router: Router,
@@ -131,18 +131,18 @@ export class SalesforceDemoFormStateService {
     }
   }
 
-  setFormData(data: IDemoFormDataInterface) {
-    localStorage.setItem(this.storageKey, JSON.stringify(data));
-    this.formData.next(data);
-  }
+  // setFormData(data: IDemoFormDataInterface) {
+  //   localStorage.setItem(this.storageKey, JSON.stringify(data));
+  //   this.formData.next(data);
+  // }
 
-  getFormData(): Observable<IDemoFormDataInterface> {
-    const data = localStorage.getItem(this.storageKey);
-    if (data) {
-      this.formData.next(JSON.parse(data));
-    }
-    return this.formObs;
-  }
+  // getFormData(): Observable<IDemoFormDataInterface> {
+  //   const data = localStorage.getItem(this.storageKey);
+  //   if (data) {
+  //     this.formData.next(JSON.parse(data));
+  //   }
+  //   return this.formObs;
+  // }
 
   navigationHandler(action: string) {
     const curLang = this.translate.currentLang;
@@ -151,6 +151,7 @@ export class SalesforceDemoFormStateService {
     const lang = curLang === 'en-US' || curLang === 'en' ? 'en' : 'fr';
 
     const homePage = '/' + lang //base route 
+    const reasonForVisit = '/' + lang + '/' + this.translate.instant('ROUTES.ReasonForVisit');
     const medicalHistoryPage = '/' + lang +
       '/' + this.translate.instant('ROUTES.MedicalHistory');
     const criminalHistoryPage = '/' + lang +
@@ -161,6 +162,13 @@ export class SalesforceDemoFormStateService {
     switch (this.router.url) {
       case homePage:
         if (action === 'next') {
+          this.router.navigateByUrl(reasonForVisit);
+        } else {
+          this.router.navigateByUrl(homePage)
+        }
+        break;
+      case reasonForVisit:
+        if (action === 'next') {
           this.router.navigateByUrl(medicalHistoryPage);
         } else {
           this.router.navigateByUrl(homePage)
@@ -170,7 +178,7 @@ export class SalesforceDemoFormStateService {
         if (action === 'next') {
           this.router.navigateByUrl(criminalHistoryPage);
         } else {
-          this.router.navigateByUrl(homePage)
+          this.router.navigateByUrl(reasonForVisit)
         }
         break;
       case criminalHistoryPage:

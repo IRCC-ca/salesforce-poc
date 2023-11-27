@@ -37,18 +37,12 @@
       max-width: 628px;
     }
 
-    .form_container {
-      //Margin above inputs:
-      .family_name_container,
-      .given_name_container,
-      .sex_at_birth_container,
-      .date_of_birth_container,
-      .country_of_birth_container,
-      .city_of_birth_container,
-      .declaration_checkbox_container {
-        margin-top: 44px;
-      }
+    .form_error_banner {
+      margin: 24px 0;
+    }
 
+    .form_container {
+  
       .banner_container {
         margin-top: 16px;
       }

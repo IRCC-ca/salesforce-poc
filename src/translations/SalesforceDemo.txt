@@ -8,11 +8,13 @@ Version	Version	Version
 Home.DateModified	Date Modified	Date de modification
 ERROR.requiredRadioError	This field is required	Ce champ est obligatoire
 Home.BeginTask	Submit	Soumettre
-AccessibilityDemo.Title	Accessibility Demo	Demo d'accessibilité
+AccessibilityDemo.Title	Accessibility Demo	Démo d'accessibilité
 Title.Home	Home	Acceuil
 Title.PersonalInfo	Personal Information	Informations-personnelles
 Title.WorkInfo	Work Information	Information-de-travail
 Title.BackgroundInfo	Background Information	Informations-preliminaires
+ROUTES.ReasonForVisit	reason-for-visit	raison-de-visite
+ROUTES.ReasonForVisit-alt	reason-for-visit	raison-de-visite
 ROUTES.CriminalHistory	criminal-history	historique
 ROUTES.WorkInfo	work-information	information-de-travail
 ROUTES.MedicalHistory	medical-history	antécédents-médicaux
@@ -26,7 +28,7 @@ ACC_DEMO.WORKINFO	Work information	Informations professionnelles
 ACC_DEMO.PREVIOUS_PAGE.CONTENT	This page is not part of the prototype. Please use the button below to return to the previous screen.	Cette page ne fait pas partie du prototype. Veuillez utiliser le bouton ci-dessous pour revenir à l'écran précédent.
 ACC_DEMO.NEXT_PAGE	This is an example of a next page - it is simply here for demonstration purposes and is not set up for correct accessibility. Note the update to the progress indicator at the top of the page. You can navigate using the progress indicator	Ceci est un exemple d'une page suivante - il est simplement là à des fins de démonstration et n'est pas configuré pour une accessibilité correcte. Notez la mise à jour de l'indicateur de progression en haut de la page. Vous pouvez naviguer en utilisant l'indicateur de progression
 ACC_DEMO.ERRORS.FAMILY_NAME_REQUIRED	This field is blank. Please enter a family name	Ce champ est vide. Veuillez saisir un nom de famille
-ACC_DEMO.ERRORS.DOB_NO_SELECTION_REQUIRED	No selection has been made. Please fill in the fields to complete your date of birth.	Aucune sélection n'a été faite. Veuillez remplir les champs pour terminer votre date de naissance.
+ACC_DEMO.ERRORS.DOB_NO_SELECTION_REQUIRED	No selection has been made. Please fill in the fields to complete your date of birth.	Aucune sélection n'a été faite. Veuillez remplir les champs pour compléter votre date de naissance.
 ACC_DEMO.ERRORS.DOB_REQUIRED	Please fill in the missing fields to complete your date of birth.	Veuillez remplir les champs manquants pour terminer votre date de naissance.
 ACC_DEMO.ERRORS.DECLARATION_REQUIRED	No selection has been made. Please make a selection to complete your declaration	Aucune sélection n'a été faite. Veuillez faire une sélection pour compléter votre déclaration
 ACC_DEMO.ERRORS.DECLARATION_CUSTOM	You must agree to continue	Vous devez accepter de continuer
@@ -39,7 +41,7 @@ ACC_DEMO.PERSONAL_INFO.BODY	Enter the correct information in the spaces below as
 ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.LABEL	Family name (required)	Nom de famille (requis)
 ACC_DEMO.MORE_INFO	more information	Plus d'information
 ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.DESC	This is your surname or last name	Ceci est votre nom de famille ou votre nom
-ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.BANNER	If you do not have a family name, provide all your given names in the family name field and leave the given names field blank.	Si vous n'avez pas de nom de famille, fournissez tous vos noms donnés dans le champ de nom de famille et laissez le champ des noms donnés vide.
+ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.BANNER	If you do not have a family name, provide all your given names in the family name field and leave the given names field blank.	Si vous n'avez pas de nom de famille, fournissez tous vos noms donnés dans le domaine du nom de famille et laissez le champ des noms donnés vide.
 ACC_DEMO.PERSONAL_INFO.FAMILY_NAME_INPUT.BANNER_CLOSE	Family name info banner. Close	Bannière d'informations sur le nom de famille. Fermer
 ACC_DEMO.PERSONAL_INFO.GIVEN_NAME_INPUT.LABEL	Given name	Prénom
 ACC_DEMO.PERSONAL_INFO.GIVEN_NAME_INPUT.DESC	This is your first name and middle name, if applicable	Ceci est votre prénom et deuxième prénom, le cas échéant
